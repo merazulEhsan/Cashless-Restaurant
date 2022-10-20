@@ -23,7 +23,7 @@ export default function Navbar() {
         </>
     )
     return (
-        <div className="navbar bg-base-100 bg-opacity-50 fixed w-full z-20 top-0 left-0 ">
+        <div className="navbar bg-base-100 sticky w-full z-20  ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0}
@@ -34,7 +34,7 @@ export default function Navbar() {
                         className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 ">
                         {menu} </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">Restaurant</a>
+                <Link to='/' className="btn btn-ghost normal-case text-xl">Restaurant</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
@@ -52,30 +52,30 @@ export default function Navbar() {
                     </label>
 
                     <ul tabIndex={0}
-                        className="mt-3 p-2 shadow menu menu-compact dropdown-content text-sm dark:bg-gray-700 rounded-box w-52">
-                        <div class="py-3 px-4 text-sm text-gray-900 dark:text-white">
+                        className="mt-3 p-2 shadow menu menu-compact dropdown-content text-sm dark:bg-gray-700 rounded-md w-52">
+                        <div className="py-3 px-4 text-sm text-gray-600 dark:text-white">
                             <div>Bonnie Green</div>
-                            <div class="font-medium truncate">name@flowbite.com</div>
+                            <div className="font-medium truncate">name@flowbite.com</div>
                         </div>
                         <hr/>
                         <li>
-                            <a href="/menu" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                            <a href="/menu" className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
                         </li>
                         <li>
-                            <a href="/about" class="flex items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                <svg aria-hidden="true" class="mr-2 w-4 h-4 fill-current" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"></path>
+                            <a href="/about" className="flex items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                <svg aria-hidden="true" className="mr-2 w-4 h-4 fill-current" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clipRule="evenodd"></path>
                                 </svg>Profile</a>
                         </li>
                         <li>
-                            <a href="/about" class="flex items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                <svg aria-hidden="true" class="mr-2 w-4 h-4 fill-current" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <a href="/about" className="flex items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                <svg aria-hidden="true" className="mr-2 w-4 h-4 fill-current" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z"></path>
                                 </svg>Setting</a>
                         </li>
                         <hr/>
-                        <li class="py-1 divide-y divide-gray-100">
-                            <a href="/about" class="flex items-center py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+                        <li className="py-1 divide-y divide-gray-100">
+                            <a href="/about" className="flex items-center py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
                         </li>
                     </ul>
 
