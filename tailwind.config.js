@@ -9,6 +9,10 @@ module.exports = {
             backgroundImage: {
                 'hero': "url('/src/images/salmon.jpg')"
             }
+        },
+        fontFamily:{
+            'nunito': ['Nunito', 'sans-serif'],
+            'playfair': ['Playfair Display', 'serif'],
         }
     },
    
