@@ -5,7 +5,7 @@ export default function Gallery() {
     <div className='h-screen bg-cover bg-center bg-no-repeat bg-hero flex justify-center items-center bg-fixed scroll-smooth  '>
 
             <div className='flex text-white h-full bg-opacity-40 bg-black'>
-                <div className='w-1/2 m-auto items-center'>
+                <div className='lg:w-1/2 m-auto items-center'>
                     <p className='uppercase text-center font-nunito font-medium tracking-wider text-sm leading-10'>TAke a Look</p>
                     <h1 className='text-center text-6xl md:text-7xl font-playfair font-semibold'>Our Galleries</h1>
                     <p className='text-center p-7 font-nunito leading-6'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem sit molestias et cupiditate, nostrum aut sunt mollitia recusandae at cum ut omnis nesciunt magni est tempora, vitae eaque! Sint, mollitia.</p>
