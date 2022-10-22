@@ -4,8 +4,8 @@ import salmon from '../../images/salmon.jpg'
 export default function Footer() {
   return (
     
-<footer className="p-4 bg-white sm:p-6 dark:bg-gray-900 ">
-    <div className="md:flex md:justify-between">
+<footer className="p-4 bg-white sm:p-6 dark:bg-gray-900 border-t-2 border-gray-700">
+    <div className="md:flex md:justify-between ">
         <div className="mb-6 md:mb-0">
             <a href="/" className="flex items-center">
                 <img src={salmon} className="mr-3 h-8" alt="FlowBite Logo"/>
