@@ -9,17 +9,17 @@ module.exports = {
         extend: {
             backgroundImage: {
                 'hero': "url('/src/images/salmon.jpg')"
+            },
+            fontFamily: {
+                'nunito': [
+                    'Nunito', 'sans-serif'
+                ],
+                'playfair': [
+                    'Playfair Display', 'serif'
+                ],
+                'vibes': 'Great Vibes, cursive',
             }
         },
-        fontFamily: {
-            'nunito': [
-                'Nunito', 'sans-serif'
-            ],
-            'playfair': [
-                'Playfair Display', 'serif'
-            ],
-            'vibes': 'Great Vibes, cursive',
-        }
     },
 
 
