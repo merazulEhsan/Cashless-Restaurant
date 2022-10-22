@@ -7,7 +7,7 @@ export default function Home() {
 
             <div className='flex text-white h-full w-full bg-opacity-40 bg-black relative'>
                 <div className='lg:w-1/2 m-auto items-center'>
-                    <p className='uppercase text-center font-nunito font-medium tracking-wider text-sm leading-10'>Enjoy your healthy delicious food</p>
+                    <p className='uppercase text-center font-vibes font-medium tracking-wider text-sm leading-10'>Enjoy your healthy delicious food</p>
 
                     <h1 className='text-center text-5xl sm:text-7xl font-playfair font-semibold' data-aos="fade-up" data-aos-duration="2000">Treat Yourself</h1>
 

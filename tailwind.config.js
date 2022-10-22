@@ -11,12 +11,17 @@ module.exports = {
                 'hero': "url('/src/images/salmon.jpg')"
             }
         },
-        fontFamily:{
-            'nunito': ['Nunito', 'sans-serif'],
-            'playfair': ['Playfair Display', 'serif'],
+        fontFamily: {
+            'nunito': [
+                'Nunito', 'sans-serif'
+            ],
+            'playfair': [
+                'Playfair Display', 'serif'
+            ],
+            'vibes': 'Great Vibes, cursive',
         }
     },
-   
+
 
     plugins: [
         require("daisyui"), require('flowbite/plugin'),

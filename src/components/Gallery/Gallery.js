@@ -32,9 +32,9 @@ export default function Gallery() {
             </div>
 
             <section class="overflow-hidden text-gray-700 mb-10">
-                <div class="container px-5 py-2 mx-auto lg:pt-24 lg:px-32 ">
-                    <div class="flex flex-wrap -m-1 md:-m-2 flex-col sm:flex-row ">
-                        <div class="flex flex-wrap sm:w-1/2" data-aos="zoom-in-right" data-aos-duration='2000'>
+                <div class="container px-5 py-2 mx-auto lg:pt-24 lg:px-28 ">
+                    <div class="flex flex-wrap -m-1 md:-m-2 flex-col sm:flex-row backdrop-blur-sm bg-white/5 shadow-lg rounded-lg">
+                        <div class="flex flex-wrap sm:w-1/2" data-aos="zoom-in-right" data-aos-duration='2000' >
                             <div class="w-1/2 p-1 md:p-2" >
                                 <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src={img1}/>
                             </div>
