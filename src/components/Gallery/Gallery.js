@@ -14,7 +14,7 @@ export default function Gallery() {
 
                 <div className='flex text-white h-full w-full bg-opacity-40 bg-black relative'>
                     <div className='lg:w-1/2 m-auto items-center'>
-                        <p className='uppercase text-center font-nunito tracking-[0.2em] font-black text-[12px]leading-10'>Take a Look</p>
+                    <p className='uppercase text-center font-nunito leading-10 tracking-[0.2em] font-black text-[12px]'>Take a look</p>
 
                         <h1 className='text-center text-5xl sm:text-7xl font-playfair font-semibold' data-aos="fade-up" data-aos-duration="2000">Our Galleries</h1>
 
@@ -33,7 +33,7 @@ export default function Gallery() {
 
             <section class="overflow-hidden text-gray-700 mb-10">
                 <div class="container px-5 py-2 mx-auto lg:pt-24 lg:px-28 ">
-                    <div class="flex flex-wrap -m-1 md:-m-2 flex-col sm:flex-row backdrop-blur-sm bg-white/5 shadow-lg rounded-lg">
+                    <div class="flex flex-wrap -m-1 md:-m-2 flex-col sm:flex-row backdrop-blur-sm bg-white/5 rounded-lg p-2 shadow-xl">
                         <div class="flex flex-wrap sm:w-1/2" data-aos="zoom-in-right" data-aos-duration='2000' >
                             <div class="w-1/2 p-1 md:p-2" >
                                 <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src={img1}/>
