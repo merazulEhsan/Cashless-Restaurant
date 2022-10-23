@@ -23,7 +23,7 @@ export default function Navbar() {
         </>
     )
     return (
-        <div className="navbar dark:bg-base-100 sticky w-full z-20 top-0 font-nunito font-light max-w-screen-xl m-auto border-b-2 border-gray-700"> 
+        <div className="navbar dark:bg-base-100 sticky w-full z-20 top-0 font-nunito font-light container px-5 m-auto border-b-2 border-gray-700"> 
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0}

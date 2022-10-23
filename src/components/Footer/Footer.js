@@ -4,7 +4,7 @@ import salmon from '../../images/salmon.jpg'
 export default function Footer() {
   return (
     
-<footer className="p-4 bg-white sm:p-6 dark:bg-gray-900 border-t-2 border-gray-700">
+<footer className="p-4 bg-white sm:p-6 dark:bg-gray-900 border-t-2 border-gray-700 container m-auto">
     <div className="md:flex md:justify-between ">
         <div className="mb-6 md:mb-0">
             <a href="/" className="flex items-center">
@@ -12,7 +12,10 @@ export default function Footer() {
                 <span className="self-center sm:text-xl text-2xl font-semibold whitespace-nowrap dark:text-white font-nunito">Cashless <span className='text-[#ff5200]'>Restaurant</span> </span>
             </a>
         </div>
-        <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3 font-nunito">
+        <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3 font-nunito" data-aos="fade-zoom-in"
+     data-aos-easing="ease-in-back"
+     data-aos-delay="300"
+     data-aos-offset="0" data-aos-duration='1500'>
             <div>
                 <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Contact</h2>
                 <ul className="text-gray-600 dark:text-gray-400">

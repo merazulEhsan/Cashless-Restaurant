@@ -3,7 +3,7 @@ import Icons from '../../Pages/Icons'
 
 export default function Home() {
     return (
-        <div className='h-screen bg-cover bg-center bg-no-repeat bg-hero flex justify-center items-center bg-fixed scroll-smooth  '>
+        <div className='h-screen bg-cover bg-center bg-no-repeat bg-hero flex justify-center items-center bg-fixed scroll-smooth'>
 
             <div className='flex text-white h-full w-full bg-opacity-40 bg-black relative'>
                 <div className='lg:w-1/2 m-auto items-center'>
