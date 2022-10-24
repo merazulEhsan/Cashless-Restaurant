@@ -8,7 +8,10 @@ module.exports = {
     theme: {
         extend: {
             backgroundImage: {
-                'hero': "url('/src/images/salmon.jpg')"
+                'hero': "url('/src/images/salmon.jpg')",
+                'hero-home': "url('/src/images/02_Gastro-Webseiten-Sliderbilder.jpg')",
+                'hero-about': "url('/src/images/02-Gastro-Webseiten-Parallax.jpg')",
+                'hero-gallery': "url('/src/images/03_Gastro-Webseiten-Sliderbilder.jpg')"
             },
             fontFamily: {
                 'nunito': [

@@ -3,10 +3,9 @@ import React from 'react'
 export default function ContactForm() {
   return (
     <section id='contacts' class="bg-gray-900 text-gray-100 px-8 py-12" data-aos="zoom-in" data-aos-duration="2000" data-aos-once="true">
-            <div class="text-center w-full mt-10">
-               <h1 className='text-5xl sm:text-8xl font-vibes text-[#c8a97e] text-center'>Contact Us</h1>
-            </div>
-            <div class="max-w-screen-xl mt-24 px-8 grid gap-8 grid-cols-1 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 py-16 mx-auto bg-white text-gray-900 rounded-lg shadow-lg">
+           
+            
+            <div class="max-w-screen-xl mt-10 px-8 grid gap-8 grid-cols-1 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 py-16 mx-auto bg-white text-gray-900 rounded-lg shadow-lg">
                 <div class="flex flex-col justify-between">
                     <div>
                         <h2 class="text-4xl lg:text-5xl font-bold leading-tight">Lets talk about everything!</h2>

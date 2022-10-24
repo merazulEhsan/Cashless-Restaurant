@@ -12,10 +12,7 @@ export default function Footer() {
                 <span className="self-center sm:text-xl text-2xl font-semibold whitespace-nowrap dark:text-white font-nunito">Cashless <span className='text-[#ff5200]'>Restaurant</span> </span>
             </a>
         </div>
-        <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3 font-nunito" data-aos="fade-zoom-in"
-     data-aos-easing="ease-in-back"
-     data-aos-delay="300"
-     data-aos-offset="0" data-aos-duration='1500'>
+        <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3 font-nunito">
             <div>
                 <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Contact</h2>
                 <ul className="text-gray-600 dark:text-gray-400">

@@ -6,7 +6,7 @@ import ChooseCard from './ChooseCard'
 export default function About() {
     return (
         <>
-            <div className='h-screen bg-cover bg-center bg-no-repeat bg-hero flex justify-center items-center bg-fixed scroll-smooth  '>
+            <div className='h-screen bg-cover bg-center bg-no-repeat bg-hero-about flex justify-center items-center bg-fixed scroll-smooth  '>
 
                 <div className='flex text-white h-full w-full bg-opacity-40 bg-black relative'>
                     <div className='lg:w-1/2 m-auto items-center'>
