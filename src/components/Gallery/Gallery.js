@@ -6,6 +6,7 @@ import img3 from '../../images/img 03.jpg'
 import img4 from '../../images/img 04.jpg'
 import img5 from '../../images/img 05.jpg'
 import img6 from '../../images/img 06.jpg'
+import {data} from '../../Data/data';
 
 export default function Gallery() {
     return (
@@ -36,24 +37,24 @@ export default function Gallery() {
                     <div class="flex flex-wrap -m-1 md:-m-2 flex-col sm:flex-row backdrop-blur-sm bg-white/5 rounded-lg p-2 shadow-xl">
                         <div class="flex flex-wrap sm:w-1/2" data-aos="zoom-in-right" data-aos-duration='2000' >
                             <div class="w-1/2 p-1 md:p-2" >
-                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src={img1}/>
+                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src={data[0].image}/>
                             </div>
                             <div class="w-1/2 p-1 md:p-2">
-                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src={img2}/>
+                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src={data[1].image}/>
                             </div>
                             <div class="w-full p-1 md:p-2">
-                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src={img3}/>
+                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src={data[2].image}/>
                             </div>
                         </div>
                         <div class="flex flex-wrap sm:w-1/2" data-aos="zoom-in-left" data-aos-duration='2000'>
                             <div class="w-full p-1 md:p-2">
-                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src={img4}/>
+                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src={data[3].image}/>
                             </div>
                             <div class="w-1/2 p-1 md:p-2">
-                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src={img5}/>
+                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src={data[4].image}/>
                             </div>
                             <div class="w-1/2 p-1 md:p-2">
-                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src={img6}/>
+                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src={data[5].image}/>
                             </div>
                         </div>
                     </div>

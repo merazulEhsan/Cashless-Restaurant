@@ -29,8 +29,6 @@ export default function About() {
 
             <section className='bg-white container m-auto'>
                <ChooseCard></ChooseCard>
-
-
             </section>
 
             <Chefs></Chefs>

@@ -11,7 +11,8 @@ module.exports = {
                 'hero': "url('/src/images/salmon.jpg')",
                 'hero-home': "url('/src/images/02_Gastro-Webseiten-Sliderbilder.jpg')",
                 'hero-about': "url('/src/images/02-Gastro-Webseiten-Parallax.jpg')",
-                'hero-gallery': "url('/src/images/03_Gastro-Webseiten-Sliderbilder.jpg')"
+                'hero-gallery': "url('/src/images/03_Gastro-Webseiten-Sliderbilder.jpg')",
+                'hero-dark': "url('/src/images/starry-night-sky-dark-aesthetic-ro6a8cda8gg0zoil.jpg')",
             },
             fontFamily: {
                 'nunito': [
