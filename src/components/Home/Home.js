@@ -2,6 +2,8 @@ import Icons from '../../Pages/Icons'
 import Menu from './Menu'
 import Review from './Review'
 import Services from './Services'
+import Chefs from '../About/Chefs';
+import Reservation from './Reservation';
 
 
 export default function Home() { // console.log(data);
@@ -31,6 +33,8 @@ export default function Home() { // console.log(data);
 
             <Services></Services>
             <Menu></Menu>
+            <Chefs></Chefs>
+            <Reservation></Reservation>
             <Review></Review>
 
         </>

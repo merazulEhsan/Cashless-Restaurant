@@ -1,11 +1,5 @@
 import React from 'react'
 import Icons from '../../Pages/Icons'
-import img1 from '../../images/img 1.jpg'
-import img2 from '../../images/img 02.jpg'
-import img3 from '../../images/img 03.jpg'
-import img4 from '../../images/img 04.jpg'
-import img5 from '../../images/img 05.jpg'
-import img6 from '../../images/img 06.jpg'
 import {data} from '../../Data/data';
 
 export default function Gallery() {
@@ -32,7 +26,7 @@ export default function Gallery() {
                 </div>
             </div>
 
-            <section class="overflow-hidden text-gray-700 mb-10">
+            <section class="overflow-hidden text-gray-700 mb-10 bg-[#fafafa] dark:bg-gray-900">
                 <div class="container px-5 py-2 mx-auto lg:pt-24 lg:px-28 ">
                     <div class="flex flex-wrap -m-1 md:-m-2 flex-col sm:flex-row backdrop-blur-sm bg-white/5 rounded-lg p-2 shadow-xl">
                         <div class="flex flex-wrap sm:w-1/2" data-aos="zoom-in-right" data-aos-duration='2000' >
