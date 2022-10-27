@@ -5,7 +5,7 @@ import Contact from './components/Contact/Contact';
 import Gallery from './components/Gallery/Gallery';
 import Navbar from './components/Header/Navbar'
 import Home from './components/Home/Home';
-import Menu from './components/Menu/Menu';
+import Menu from './components/Menu/Menus';
 import Footer from './components/Footer/Footer';
 
 function App() {
