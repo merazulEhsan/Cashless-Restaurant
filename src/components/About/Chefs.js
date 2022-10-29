@@ -9,7 +9,7 @@ export default function Chefs() {
         <section className='w-full mt-16 sm:p-5 container m-auto'>
             <div className='relative w-full'>
                 <h1 className='text-5xl sm:text-8xl font-vibes text-[#c8a97e] text-center'>Chef</h1>
-                <span className='text-xl sm:text-4xl font-nunito absolute left-1/4 -translate-y-6 sm:-translate-y-10 md:left-48 lg:left-1/3 xl:left-1/3 xl:translate-x-14 text-zinc-300 font-black'>Our Professional Chef</span>
+                <span className='text-3xl sm:text-5xl font-serif absolute left-1/4 -translate-y-6 sm:-translate-y-10 md:left-48 lg:left-1/3 xl:left-1/3 xl:translate-x-4 text-zinc-300 font-black'>Professional Chef</span>
             </div>
 
             <div className='mt-20 mb-20 m-auto' data-aos="fade-up" data-aos-duration="3000">

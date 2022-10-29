@@ -53,7 +53,8 @@ export default function Review() {
                         <div className='text-center p-5'>
                             <div className='  mb-7 mt-7 flex justify-center'>
                                 <div className='h-24 w-24 rounded-full bg-slate-800'>
-                                    
+                                
+
                                 </div>
                             </div>
                             <p className='text-gray-300 '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex dolores maiores animi deserunt consequatur praesentium quos, aperiam fuga fugit dolorum.</p>
