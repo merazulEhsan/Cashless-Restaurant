@@ -1,7 +1,20 @@
+import {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom'
 import salmon from '../../images/salmon.jpg'
 
 export default function Navbar() {
+
+    const [theme, setTheme] = useState(localStorage.theme);
+    const toggle = (theme === "dark" ? "light" : "dark");
+
+    useEffect(() => {
+
+        const rootEl = document.documentElement;
+        rootEl.classList.remove(toggle);
+        rootEl.classList.add(theme)
+        localStorage.setItem('theme', theme)
+    }, [theme, toggle]);
+
 
     const menu = (
         <>
@@ -23,7 +36,7 @@ export default function Navbar() {
         </>
     )
     return (
-        <div className="navbar bg-white backdrop-blur-2xl dark:bg-base-100 sticky w-full top-0 z-20 font-nunito font-light container px-5 m-auto border-b-2 border-indigo-500 text-black dark:text-current"> 
+        <div className="navbar bg-white backdrop-blur-2xl dark:bg-base-100 sticky w-full top-0 z-50 font-nunito font-light container px-5 m-auto border-b-2 border-indigo-500 text-black dark:text-current">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0}
@@ -60,7 +73,10 @@ export default function Navbar() {
                         <hr/>
                         <li>
                             <a href="/menu" className="flex items-center py-2 px-4 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
-                                <svg aria-hidden="true" class="mr-2 w-4 h-4 fill-current" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>Dashboard</a>
+                                <svg aria-hidden="true" class="mr-2 w-4 h-4 fill-current" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+                                    <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+                                </svg>Dashboard</a>
                         </li>
                         <li>
                             <a href="/about" className="flex items-center py-2 px-4 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
@@ -69,10 +85,18 @@ export default function Navbar() {
                                 </svg>Profile</a>
                         </li>
                         <li>
-                            <a href="/about" className="flex items-center py-2 px-4 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
-                                <svg aria-hidden="true" className="mr-2 w-4 h-4 fill-current" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z"></path>
-                                </svg>Setting</a>
+                            <label for="small-toggle" class="inline-flex relative items-center mb-5 cursor-pointer">
+                                <input onClick={
+                                        () => setTheme(toggle)
+                                    }
+                                    type="checkbox"
+                                    value=""
+                                    id="small-toggle"
+                                    class="sr-only peer"/>
+                                <div class="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[10px] after:left-[18px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Small toggle</span>
+                            </label>
+
                         </li>
                         <hr/>
                         <li className="py-1 divide-y divide-gray-100">

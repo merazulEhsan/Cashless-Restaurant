@@ -9,7 +9,7 @@ export default function ChooseCard() {
             </div>
 
 
-            <div className='mt-20 p-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 justify-items-center gap-y-5' data-aos="zoom-in-up" data-aos-duration='1500' data-aos-easing="ease-in-back" data-aos-delay="0" data-aos-offset="0">
+            <div className=' mt-20 p-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 justify-items-center gap-y-5' data-aos="zoom-in-up" data-aos-duration='1500' data-aos-easing="ease-in-back" data-aos-delay="0" data-aos-offset="0">
                 <div className='mb-5 bg-white text-black w-60 p-5 rounded-md h-64 transition-all duration-500 ease-linear shadow-md shadow-blue-500/70  hover:-translate-y-5'>
                     <p className='text-blue-500 font-black font-nunito'>01</p>
                     <h1 className='font-playfair text-lg font-medium mt-1'>Delicious Food</h1>
@@ -30,6 +30,7 @@ export default function ChooseCard() {
                     <h1 className='font-playfair text-lg font-medium mt-1'>Parties</h1>
                     <p className='font-nunito text-base mt-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi adipisci, unde esse voluptas nobis expedita soluta velit nulla veniam. Libero!</p>
                 </div>
+            
             </div>
         </>
     )

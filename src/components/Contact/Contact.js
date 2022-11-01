@@ -28,7 +28,7 @@ export default function Contact() {
                 </div>
             </div>
 
-            <section id='contacts' class="bg-gray-900 text-gray-100 px-8 py-12" data-aos="zoom-in" data-aos-duration="2000" data-aos-once="true">
+            <section id='contacts' class="bg-gray-900 text-gray-100 px-8 py-12" data-aos="zoom-in" data-aos-duration="1000" data-aos-once="true">
                 <div class="text-center w-full mt-10">
                     <h1 className='text-5xl sm:text-8xl font-vibes text-[#c8a97e] text-center'>Contact Us</h1>
                 </div>
