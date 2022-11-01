@@ -18,7 +18,7 @@ export default function Review() {
     <Parallax bgImage={img}  strength={300} >
 
 <section className='w-full  bg-opacity-20 bg-black'>
-                <div className='container m-auto pt-16 pb-10'>
+                <div className='container m-auto pt-16 pb-10 '>
                 <div className='relative w-full mb-10 ' data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-once="true">
                     <h1 className='text-5xl sm:text-8xl font-vibes text-[#c8a97e] text-center '>Testimony</h1>
                     <span className='text-xl sm:text-5xl font-serif absolute left-1/4 -translate-y-6 translate-x-5 sm:-translate-y-10 md:left-40 lg:left-1/4 lg:translate-x-10 xl:left-1/3 xl:translate-x-10 text-white font-black'>Happy Customer</span>

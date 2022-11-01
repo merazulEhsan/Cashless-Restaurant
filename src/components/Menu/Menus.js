@@ -99,75 +99,77 @@ export default function Menus() {
 
                     {/* Display foods */}
                     <div className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6 pt-4 mb-14'>
-                        {
-                        foods.map((item, index) => (
-                            <div key={index}
-                                data-aos="zoom-in"
-                                data-aos-duration="1000"
-                                data-aos-easing="ease-in-out"
-                                data-aos-once="true">
-                                <div className='border shadow-md dark:hover:shadow-blue-600 rounded-lg hover:scale-105 duration-1000 cursor-pointer hover:border-none'>
-                                    <img src={
-                                            item.image
-                                        }
-                                        alt={
-                                            item.name
-                                        }
-                                        className='w-full h-[200px] object-cover rounded-t-lg'/>
-                                    <div className='flex justify-between px-2 py-4'>
-                                        <p className='font-bold text-gray-800 dark:text-gray-300 font-playfair tracking-wide'>
+                    {
+                    foods.map((item, index) => (
+                        <div key={index}
+                            data-aos="zoom-in"
+                            data-aos-duration="1000"
+                            data-aos-easing="ease-in-out"
+                            data-aos-once="true">
+                            <div className='border shadow-md dark:hover:shadow-blue-600 rounded-lg hover:scale-105 duration-1000 cursor-pointer hover:border-blue-600'>
+                                <img src={
+                                        item.image
+                                    }
+                                    alt={
+                                        item.name
+                                    }
+                                    className='w-full h-[200px] object-cover rounded-t-lg'/>
+                                <div className='flex justify-between px-2 py-2 items-center'>
+                                    <p className='font-bold text-gray-800 dark:text-gray-300 font-playfair tracking-wide'>
+                                        {
+                                        item.name
+                                    }</p>
+
+                                    <button class="relative inline-flex items-center justify-center p-0.5 mr-1 overflow-hidden text-xs font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
+                                        <span class="relative px-2 py-1 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                            Order Now
+                                        </span>
+                                    </button>
+
+                                </div>
+                                <div className='px-2 mb-3'>
+                                    <p>
+                                        <span className='bg-orange-500 text-white p-1 rounded-full'>
                                             {
-                                            item.name
-                                        }</p>
-                                        <p>
-                                            <span className='bg-orange-500 text-white p-1 rounded-full'>
-                                                {
-                                                item.price
-                                            } </span>
-                                        </p>
-                                    </div>
-                                    <div className='text-center p-2'>
-                                        <button class="relative inline-flex items-center justify-center p-0.5 mb-1 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
-                                            <span class="relative px-5 py-1.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                                                Order Now
-                                            </span>
-                                        </button>
-                                    </div>
+                                            item.price
+                                        } </span>
+                                    </p>
                                 </div>
                             </div>
-                        ))
-                    } </div>
+                        </div>
+                    ))
+                } </div>
                 </div>
             </section>
 
 
             <div>
-                
-<nav aria-label="Page navigation example" className='text-center mb-10'>
-  <ul class="inline-flex -space-x-px">
-    <li>
-      <button class="py-2 px-3 ml-0 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</button>
-    </li>
-    <li>
-      <button class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</button>
-    </li>
-    <li>
-      <button class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</button>
-    </li>
-    <li>
-      <button aria-current="page" class="py-2 px-3 text-blue-600 bg-blue-50 border border-gray-300 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</button>
-    </li>
-    <li>
-      <button class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</button>
-    </li>
-    <li>
-      <button class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</button>
-    </li>
-    <li>
-      <button class="py-2 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</button>
-    </li>
-  </ul>
-</nav>
+
+                <nav aria-label="Page navigation example" className='text-center mb-10'>
+                    <ul class="inline-flex -space-x-px">
+                        <li>
+                            <button class="py-2 px-3 ml-0 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</button>
+                        </li>
+                        <li>
+                            <button class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</button>
+                        </li>
+                        <li>
+                            <button class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</button>
+                        </li>
+                        <li>
+                            <button aria-current="page" class="py-2 px-3 text-blue-600 bg-blue-50 border border-gray-300 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</button>
+                        </li>
+                        <li>
+                            <button class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</button>
+                        </li>
+                        <li>
+                            <button class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</button>
+                        </li>
+                        <li>
+                            <button class="py-2 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</button>
+                        </li>
+                    </ul>
+                </nav>
 
             </div>
 

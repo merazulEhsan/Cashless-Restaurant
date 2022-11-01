@@ -14,8 +14,8 @@ export default function Menu() {
     // Filter by price
 
     return (
-        <section className='w-full container m-auto relative '>
-            <div className='bg-white dark:bg-gray-900 pt-20 pb-10'>
+        <section className='w-full container m-auto relative'>
+            <div className='bg-white dark:bg-gray-900 pt-20 pb-10 '>
                 <div className='relative w-full md:mb-5 z-30' data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-once="true">
                     <h1 className='text-5xl sm:text-8xl font-vibes text-[#c8a97e] text-center '>Menu</h1>
                     <span className='text-xl sm:text-5xl font-serif absolute left-1/4 -translate-y-6 translate-x-4 sm:-translate-y-10 md:left-40 lg:left-1/4 lg:translate-x-10 xl:left-1/3 xl:translate-x-5 text-black dark:text-white font-black'>Top Rated Menu</span>
@@ -76,7 +76,7 @@ export default function Menu() {
                     {/* Filter Price */} </div>
 
                 {/* Display foods */}
-                <div className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6 pt-4 mb-14'>
+                <div className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6 pt-4 pb-16'>
                     {
                     foods.map((item, index) => (
                         <div key={index}
@@ -122,7 +122,7 @@ export default function Menu() {
             <span>
                 <span className='absolute left-0 -top-5 w-full'>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                        <path fill="#fafafa" fill-opacity="1" d="M0,160L40,170.7C80,181,160,203,240,208C320,213,400,203,480,186.7C560,171,640,149,720,133.3C800,117,880,107,960,122.7C1040,139,1120,181,1200,202.7C1280,224,1360,224,1400,224L1440,224L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path>
+                        <path fill="#f2f2f2" fill-opacity="1" d="M0,160L40,170.7C80,181,160,203,240,208C320,213,400,203,480,186.7C560,171,640,149,720,133.3C800,117,880,107,960,122.7C1040,139,1120,181,1200,202.7C1280,224,1360,224,1400,224L1440,224L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path>
                     </svg>
                 </span>
             </span>

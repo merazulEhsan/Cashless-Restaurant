@@ -2,20 +2,20 @@ import React from 'react'
 import img from '../../images/YG4RVTTXWRFWLAVHKLYVP74HN4.jpg'
 export default function Reservation() {
     return (
-        <section className='w-full container m-auto'>
-            <div className='bg-white dark:bg-gray-900 pt-10 pb-10'>
+        <section className='w-full container m-auto bg-white dark:bg-gray-900'>
+            <div className=' pt-10 pb-10'>
                 <div className='relative w-full md:mb-5 ' data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-once="true">
                     <h1 className='text-5xl sm:text-8xl font-vibes text-[#c8a97e] text-center '>Booking</h1>
                     <span className='text-xl sm:text-5xl font-serif absolute left-1/4 -translate-y-6 translate-x-4 sm:-translate-y-10 md:left-40 lg:left-1/4 lg:translate-x-8 xl:left-1/3 xl:translate-x-1 text-black dark:text-white font-black'>Make Reservation</span>
                 </div>
             </div>
 
-            <div className='mb-10 relative flex flex-col sm:flex-row backdrop:blur-lg p-2 md:p-4 lg:p-6'>
+            <div className='pb-10 relative flex flex-col sm:flex-row backdrop:blur-lg p-2 md:p-4 lg:p-6'>
                 <div className='w-full sm:w-3/4 mb-4 shadow-lg shadow-slate-50/5'>
                     <img className='rounded-md' src={img}
                         alt=""/>
                 </div>
-                <div className='sm:w-1/2 p-3 sm:p-0 bg-black bg-opacity-60 h-auto md:absolute lg:right-5 md:right-3 xl:right-10 md:translate-y-5 lg:translate-y-11 xl:translate-y-1/3 rounded-md drop-shadow-lg shadow-inner shadow-fuchsia-500/70 '>
+                <div className='sm:w-1/2 p-3 sm:p-0 bg-black dark:bg-opacity-60 h-auto md:absolute lg:right-5 md:right-3 xl:right-10 md:translate-y-5 lg:translate-y-11 xl:translate-y-1/3 rounded-md drop-shadow-lg shadow-inner shadow-fuchsia-500/70 '>
                     <form className='w-full lg:w-5/6 md:p-4 lg:p-7 m-auto'>
                         <div className='flex justify-between gap-6 md:gap-4'>
                             <div class="relative z-0">

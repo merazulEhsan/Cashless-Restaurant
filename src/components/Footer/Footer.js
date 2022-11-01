@@ -4,7 +4,7 @@ import salmon from '../../images/salmon.jpg'
 export default function Footer() {
     return (
         <>
-            <footer className="p-4  sm:p-6  border-t-2 border-gray-700 container m-auto">
+            <footer className="p-4  sm:p-6  border-t-2 border-gray-700 container m-auto bg-black">
                 <div className="md:flex md:justify-between ">
                     <div className="mb-6 md:mb-0">
                         <a href="/" className="flex items-center">
@@ -18,8 +18,8 @@ export default function Footer() {
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3 font-nunito">
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Contact</h2>
-                            <ul className="text-gray-600 dark:text-gray-400">
+                            <h2 className="mb-6 text-sm font-semibold uppercase text-white">Contact</h2>
+                            <ul className="text-gray-400 hover:text-white">
                                 <li className="mb-4">
                                     <a href="https://flowbite.com/" className="hover:underline">+880 01700000000</a>
                                 </li>
@@ -29,8 +29,8 @@ export default function Footer() {
                             </ul>
                         </div>
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
-                            <ul className="text-gray-600 dark:text-gray-400">
+                            <h2 className="mb-6 text-sm font-semibold  uppercase text-white">Follow us</h2>
+                            <ul className="text-gray-400 hover:text-white">
                                 <li className="mb-4">
                                     <a href="https://github.com/themesberg/flowbite" className="hover:underline ">Facebook</a>
                                 </li>
@@ -40,8 +40,8 @@ export default function Footer() {
                             </ul>
                         </div>
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
-                            <ul className="text-gray-600 dark:text-gray-400">
+                            <h2 className="mb-6 text-sm font-semibold  uppercase text-white">Legal</h2>
+                            <ul className="text-gray-400 hover:text-white">
                                 <li className="mb-4">
                                     <a href="#" className="hover:underline">Privacy Policy</a>
                                 </li>
@@ -54,8 +54,8 @@ export default function Footer() {
                 </div>
                 <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"/>
                 <div className="sm:flex sm:items-center sm:justify-center font-nunito">
-                    <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022
-                        <a href="/" className="hover:underline">Cashless Restaurant</a>. All Rights Reserved.
+                    <span className="text-sm text-gray-400 sm:text-center dark:text-gray-400">© 2022
+                        <a href="/" className="hover:underline"> Cashless Restaurant</a>. All Rights Reserved.
                     </span>
 
                 </div>
