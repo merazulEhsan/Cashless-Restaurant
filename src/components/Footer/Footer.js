@@ -4,7 +4,7 @@ import salmon from '../../images/salmon.jpg'
 export default function Footer() {
     return (
         <>
-            <footer className="p-4  sm:p-6  border-t-2 border-gray-700 container m-auto bg-black">
+            <footer className="p-4  sm:p-6  border-t-2 border-gray-700 container m-auto bg-[#161623]">
                 <div className="md:flex md:justify-between ">
                     <div className="mb-6 md:mb-0">
                         <a href="/" className="flex items-center">

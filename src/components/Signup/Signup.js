@@ -4,27 +4,27 @@ import signup from '../../images/Sign up-amico.png'
 export default function Signup() {
     return (
         <>
-            <div className=" container m-auto sm:p-4 lg:p-4 relative ">
+            <div className=" container m-auto sm:p-4 lg:p-4 relative flex justify-center">
                 <span className='absolute top-0 left-0 -z-10'>
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" className='w-full h-[610px] ' preserveAspectRatio="none" viewBox="0 0 1440 560">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" className='w-full h-[610px] dark:bg-gray-900 bg-[#f6f7fb]' preserveAspectRatio="none" viewBox="0 0 1440 560">
                         <g mask="url(&quot;#SvgjsMask1013&quot;)" fill="none">
-                            <rect width="1440" height="560" x="0" y="0" fill="#0e2a47"></rect>
+                            <rect width="1440" height="560" x="0" y="0" fill=""></rect>
                             <path d="M0,478.773C86.963,464.829,147.894,392.868,219.759,341.952C287.954,293.636,369.356,260.171,410.9,187.652C454.237,112.003,478.016,18.379,452.961,-65.126C428.74,-145.854,344.143,-187.551,281.43,-243.86C226.963,-292.766,180.255,-354.116,109.638,-373.393C39.582,-392.516,-31.209,-363.127,-102.366,-348.626C-180.59,-332.685,-264.442,-332.522,-327.996,-284.21C-398.358,-230.723,-461.052,-155.562,-471.753,-67.828C-482.403,19.489,-417.604,94.077,-384.052,175.391C-348.981,260.388,-342.403,363.523,-270.251,420.519C-196.444,478.823,-92.872,493.664,0,478.773" fill="#0a1d32"></path>
                             <path d="M1440 1001.557C1525.194 1016.21 1621.864 1001.511 1687.863 945.683 1752.335 891.146 1746.326 792.683 1778.987 714.81 1810.318 640.106 1874.251 578.317 1875.907 497.326 1877.679 410.69399999999996 1851.676 317.293 1788.325 258.175 1726.336 200.32799999999997 1627.857 220.55 1548.1970000000001 191.514 1460.907 159.697 1390.941 66.40100000000001 1299.007 79.82100000000003 1206.934 93.262 1137.699 177.29899999999998 1091.657 258.159 1049.7060000000001 331.83500000000004 1070.693 421.265 1056.95 504.926 1042.836 590.845 970.431 678.8050000000001 1009.802 756.465 1049.42 834.611 1165.35 825.5360000000001 1241.477 868.9069999999999 1312.059 909.119 1359.942 987.788 1440 1001.557" fill="#12375c"></path>
                         </g>
                         <defs>
                             <mask id="SvgjsMask1013">
-                                <rect width="1440" height="560" fill="#ffffff"></rect>
+                                <rect width="1440" height="560" className='fill-red-400 dark:fill-white'></rect>
                             </mask>
                         </defs>
                     </svg>
                 </span>
 
 
-                <div className=' flex justify-evenly rounded-md items-center md:flex-row-reverse'>
-                    <div className='p-8 sm:1/3 lg:w-1/3 shadow-2xl rounded-md '>
+                <div className=' flex justify-evenly rounded-md sm:shadow-2xl items-center md:flex-row-reverse lg:w-4/5 '>
+                    <div className='p-8 sm:1/3 lg:w-1/3'>
 
-                        <h1 className='text-4xl font-serif text-white mb-4 text-center'>
+                        <h1 className='text-4xl font-serif dark:text-white mb-4 text-center text-black '>
                             Sign Up</h1>
                         <div className='text-center'>
                             <button type="button" class="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2">
@@ -70,7 +70,7 @@ export default function Signup() {
                     <p>Forget your password?</p>
                     <a href='/'>Reset Password</a>
                 </div> */}
-                        <p className='text-center cursor-pointer hover:underline mt-3'>Already Have account?</p>
+                        <p className='text-center cursor-pointer hover:underline mt-3 dark:text-white text-black'>Already Have account?</p>
                     </div>
 
                     <div className='w-1/2 lg:w-1/3 hidden md:block'>
