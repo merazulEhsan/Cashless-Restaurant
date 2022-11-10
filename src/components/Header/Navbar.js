@@ -1,9 +1,12 @@
+import { signOut } from 'firebase/auth';
 import {useEffect, useState} from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import {Link} from 'react-router-dom'
+import auth from '../../firebase.init';
 import salmon from '../../images/salmon.jpg'
 
 export default function Navbar() {
-
+    const [user] = useAuthState(auth);
     const [theme, setTheme] = useState(localStorage.theme);
     const toggle = (theme === "dark" ? "light" : "dark");
 
@@ -62,25 +65,25 @@ export default function Navbar() {
             </div>
             <div className="navbar-end">
 
-                <div className="dropdown dropdown-end">
+               {user ?  (<div className="dropdown dropdown-end">
                     <label tabIndex={0}
                         className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
-                            <img src={salmon}
+                            <img src={user?.photoURL}
                                 alt=''/>
                         </div>
                     </label>
 
                     <ul tabIndex={0}
-                        className="mt-2 p-2 shadow menu menu-compact dropdown-content text-sm bg-white  text-black dark:text-current dark:bg-gray-700 rounded-md w-52 font-nunito">
+                        className="mt-2 p-2 shadow menu menu-compact dropdown-content text-sm bg-white  text-black dark:text-current dark:bg-gray-700 rounded-md w-56 font-nunito">
                         <div className="py-3 px-4 text-sm text-black dark:text-white">
-                            <div>Bonnie Green</div>
-                            <div className="font-medium truncate">name@flowbite.com</div>
+                            <div>{user?.displayName}</div>
+                            <div className="font-medium truncate">{user?.email}</div>
                         </div>
                         <hr/>
                         <li>
                             <a href="/menu" className="flex items-center py-2 px-4 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
-                                <svg aria-hidden="true" class="mr-2 w-4 h-4 fill-current" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <svg aria-hidden="true" className="mr-2 w-4 h-4 fill-current" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
                                     <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
                                 </svg>Dashboard</a>
@@ -92,7 +95,7 @@ export default function Navbar() {
                                 </svg>Profile</a>
                         </li>
                         <li>
-                            <label className="swap swap-rotate w-full justify-start">
+                            <label className="swap swap-rotate w-full justify-start hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
 
 
                                 <input onClick={
@@ -105,17 +108,18 @@ export default function Navbar() {
 
                                 <svg className="swap-off fill-current w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/></svg>
 
-                                <span className='ml-9'>Theme</span>
+                                <span className='ml-9 '>Theme</span>
                             </label>
 
                         </li>
                         <hr/>
                         <li className="py-1 divide-y divide-gray-100">
-                            <a href="/about" className="flex items-center py-2 px-4 text-sm text-black hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+                            <button onClick={()=>signOut(auth)} className="flex items-center py-2 px-4 text-sm hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Sign Out</button>
                         </li>
                     </ul>
 
-                </div>
+                </div>):(<Link to="/signup" className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2 text-center mr-2 mb-0">SignUp</Link>)
+                }
 
             </div>
         </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import salmon from '../../images/salmon.jpg'
 
 export default function Footer() {
@@ -7,14 +8,19 @@ export default function Footer() {
             <footer className="p-4  sm:p-6  border-t-2 border-gray-700 container m-auto bg-[#161623]">
                 <div className="md:flex md:justify-between ">
                     <div className="mb-6 md:mb-0">
-                        <a href="/" className="flex items-center">
+                        <div className="flex items-center">
                             <img src={salmon}
                                 className="mr-3 h-8"
                                 alt="FlowBite Logo"/>
-                            <span className="self-center sm:text-xl text-2xl font-semibold whitespace-nowrap dark:text-white font-nunito">Cashless
-                                <span className='text-[#ff5200]'>Restaurant</span>
-                            </span>
-                        </a>
+                            <div>
+                            <Link to='/' className="btn btn-ghost normal-case">
+                                <div className='relative'>
+                                    <span className='text-4xl tracking-widest font-vibes text-[#c8a97e] relative'>Cashless</span>
+                                    <span className='tracking-widest font-nunito text-white absolute top-1/2 left-1/4 lg:left-7 text-base font-black inline-block'>Restaurant</span>
+                                </div>
+                            </Link>
+                            </div>
+                        </div>
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3 font-nunito">
                         <div>
@@ -55,12 +61,13 @@ export default function Footer() {
                 <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"/>
                 <div className="sm:flex sm:items-center sm:justify-center font-nunito">
                     <span className="text-sm text-gray-400 sm:text-center dark:text-gray-400">© 2022
-                        <a href="/" className="hover:underline"> Cashless Restaurant</a>. All Rights Reserved.
+                        <a href="/" className="hover:underline">
+                            Cashless Restaurant</a>. All Rights Reserved.
                     </span>
 
                 </div>
 
-           
+
             </footer>
         </>
 

@@ -26,29 +26,29 @@ export default function Gallery() {
                 </div>
             </div>
 
-            <section class="overflow-hidden text-gray-700 mb-10 bg-[#fafafa] dark:bg-gray-900">
-                <div class="container px-5 py-2 mx-auto lg:pt-24 lg:px-28 ">
-                    <div class="flex flex-wrap -m-1 md:-m-2 flex-col sm:flex-row backdrop-blur-sm bg-white/5 rounded-lg p-2 shadow-xl">
-                        <div class="flex flex-wrap sm:w-1/2" data-aos="zoom-in-right" data-aos-duration='2000' >
-                            <div class="w-1/2 p-1 md:p-2" >
-                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src={data[0].image}/>
+            <section className="overflow-hidden text-gray-700 mb-10 bg-[#fafafa] dark:bg-gray-900">
+                <div className="container px-5 py-2 mx-auto lg:pt-24 lg:px-28 ">
+                    <div className="flex flex-wrap -m-1 md:-m-2 flex-col sm:flex-row backdrop-blur-sm bg-white/5 rounded-lg p-2 shadow-xl">
+                        <div className="flex flex-wrap sm:w-1/2" data-aos="zoom-in-right" data-aos-duration='2000' >
+                            <div className="w-1/2 p-1 md:p-2" >
+                                <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg" src={data[0].image}/>
                             </div>
-                            <div class="w-1/2 p-1 md:p-2">
-                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src={data[1].image}/>
+                            <div className="w-1/2 p-1 md:p-2">
+                                <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg" src={data[1].image}/>
                             </div>
-                            <div class="w-full p-1 md:p-2">
-                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src={data[2].image}/>
+                            <div className="w-full p-1 md:p-2">
+                                <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg" src={data[2].image}/>
                             </div>
                         </div>
-                        <div class="flex flex-wrap sm:w-1/2" data-aos="zoom-in-left" data-aos-duration='2000'>
-                            <div class="w-full p-1 md:p-2">
-                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src={data[3].image}/>
+                        <div className="flex flex-wrap sm:w-1/2" data-aos="zoom-in-left" data-aos-duration='2000'>
+                            <div className="w-full p-1 md:p-2">
+                                <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg" src={data[3].image}/>
                             </div>
-                            <div class="w-1/2 p-1 md:p-2">
-                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src={data[4].image}/>
+                            <div className="w-1/2 p-1 md:p-2">
+                                <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg" src={data[4].image}/>
                             </div>
-                            <div class="w-1/2 p-1 md:p-2">
-                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src={data[5].image}/>
+                            <div className="w-1/2 p-1 md:p-2">
+                                <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg" src={data[5].image}/>
                             </div>
                         </div>
                     </div>

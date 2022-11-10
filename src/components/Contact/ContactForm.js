@@ -3,21 +3,21 @@ import React from 'react'
 export default function ContactForm() {
     return (
         <section className='bg-gray-50 dark:bg-gray-900'>
-            <div id='contacts' class=" text-gray-100 px-8 py-12" data-aos="zoom-in" data-aos-duration="2000" data-aos-once="true">
+            <div id='contacts' className=" text-gray-100 px-8 py-12" data-aos="zoom-in" data-aos-duration="2000" data-aos-once="true">
 
 
-                <div class="max-w-screen-xl mt-10 px-8 grid gap-8 grid-cols-1 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 py-16 mx-auto bg-white text-gray-900 rounded-lg shadow-lg">
-                    <div class="flex flex-col justify-between">
+                <div className="max-w-screen-xl mt-10 px-8 grid gap-8 grid-cols-1 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 py-16 mx-auto bg-white text-gray-900 rounded-lg shadow-lg">
+                    <div className="flex flex-col justify-between">
                         <div>
-                            <h2 class="text-4xl lg:text-5xl font-bold leading-tight">Lets talk about everything!</h2>
-                            <div class="text-gray-700 mt-8">
+                            <h2 className="text-4xl lg:text-5xl font-bold leading-tight">Lets talk about everything!</h2>
+                            <div className="text-gray-700 mt-8">
                                 Hate forms? Send us an
-                                <span class="underline">email</span>
+                                <span className="underline">email</span>
                                 instead.
                             </div>
                         </div>
-                        <div class="mt-8 text-center">
-                            <svg class="w-full" xmlns="http://www.w3.org/2000/svg" id="ae37f038-3a9e-4b82-ad68-fc94ba16af2a" data-name="Layer 1" viewBox="0 0 1096 574.74">
+                        <div className="mt-8 text-center">
+                            <svg className="w-full" xmlns="http://www.w3.org/2000/svg" id="ae37f038-3a9e-4b82-ad68-fc94ba16af2a" data-name="Layer 1" viewBox="0 0 1096 574.74">
                                 <defs>
                                     <linearGradient id="eb6c86d6-45fa-49e0-9a60-1b0612516196" x1="819.07" y1="732.58" x2="819.07" y2="560.46" gradientUnits="userSpaceOnUse">
                                         <stop offset="0" stop-color="gray" stop-opacity="0.25"/>
@@ -258,19 +258,19 @@ export default function ContactForm() {
                             </svg>
                         </div>
                     </div>
-                    <div class="">
+                    <div className="">
                         <div>
-                            <span class="uppercase text-sm text-gray-600 font-bold">Full Name</span>
-                            <input class="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="text" placeholder="Full Name"/></div>
-                        <div class="mt-8">
-                            <span class="uppercase text-sm text-gray-600 font-bold">Email</span>
-                            <input class="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="text" placeholder='name@gmail.com'/></div>
-                        <div class="mt-8">
-                            <span class="uppercase text-sm text-gray-600 font-bold">Message</span>
-                            <textarea class="w-full h-32 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" placeholder='Text'></textarea>
+                            <span className="uppercase text-sm text-gray-600 font-bold">Full Name</span>
+                            <input className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="text" placeholder="Full Name"/></div>
+                        <div className="mt-8">
+                            <span className="uppercase text-sm text-gray-600 font-bold">Email</span>
+                            <input className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="text" placeholder='name@gmail.com'/></div>
+                        <div className="mt-8">
+                            <span className="uppercase text-sm text-gray-600 font-bold">Message</span>
+                            <textarea className="w-full h-32 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" placeholder='Text'></textarea>
                         </div>
-                        <div class="mt-8">
-                            <button class="uppercase text-sm font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline">
+                        <div className="mt-8">
+                            <button className="uppercase text-sm font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline">
                                 Send Message
                             </button>
                         </div>
