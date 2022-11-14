@@ -34,7 +34,7 @@ export default function Contact() {
                     <h1 className='text-5xl sm:text-8xl font-vibes text-[#c8a97e] text-center'>Contact Us</h1>
                 </div>
 
-                <div className='container m-auto grid gap-y-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 justify-items-center mt-10 '>
+                <div className='2xl:container m-auto grid gap-y-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 justify-items-center mt-10 '>
                     <div className='shadow-md dark:bg-white/5 dark:backdrop-blur-sm w-60 h-40 p-2 text-center flex items-center   flex-col rounded-md border-l-2 border-red-600 hover:bg-white group transition-all hover:ease-in-out hover:duration-700 hover:drop-shadow-md'>
                         <span className=''>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" className="w-4 h-4 mt-6 p-2 bg-orange-500 btn-circle h-8 w-8">

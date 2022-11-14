@@ -27,7 +27,7 @@ export default function Gallery() {
             </div>
 
             <section className="overflow-hidden text-gray-700 mb-10 bg-[#fafafa] dark:bg-gray-900">
-                <div className="container px-5 py-2 mx-auto lg:pt-24 lg:px-28 ">
+                <div className="2xl:container px-5 py-2 mx-auto lg:pt-24 lg:px-28 ">
                     <div className="flex flex-wrap -m-1 md:-m-2 flex-col sm:flex-row backdrop-blur-sm bg-white/5 rounded-lg p-2 shadow-xl">
                         <div className="flex flex-wrap sm:w-1/2" data-aos="zoom-in-right" data-aos-duration='2000' >
                             <div className="w-1/2 p-1 md:p-2" >

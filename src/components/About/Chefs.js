@@ -6,7 +6,7 @@ import ChefIcon from '../About/ChefIcon';
 
 export default function Chefs() {
     return (
-        <section className='w-full bg-gray-50 sm:p-5 container m-auto dark:bg-gray-900 relative '>
+        <section className='w-full bg-gray-50 sm:p-5 2xl:container m-auto dark:bg-gray-900 relative '>
 
             
             <div className='relative w-full py-10'>

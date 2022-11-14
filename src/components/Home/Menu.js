@@ -1,20 +1,23 @@
-import React, {useState} from 'react'
-import {data} from '../../Data/data';
+import React, {useEffect, useState} from 'react'
+import useItems from '../Hooks/useItems';
+
 
 export default function Menu() {
-    const [foods, setFoods] = useState(data);
+    const [items] = useItems();
+    const [foods, setFoods] = useState([]);
+
+    useEffect(() => {
+        setFoods(items)
+    }, [items])
 
     // Filter Type burgers/pizza/etc
     const filterType = (category) => {
-        setFoods(data.filter((item) => {
-            return item.category === category;
-        }));
+        const food = items.filter((item) => item.category === category)
+        setFoods(food)
     };
 
-    // Filter by price
-
     return (
-        <section className='w-full container m-auto relative'>
+        <section className='w-full 2xl:container m-auto relative'>
             <div className='bg-white dark:bg-gray-900 pt-20 pb-10 '>
                 <div className='relative w-full md:mb-5 z-30' data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-once="true">
                     <h1 className='text-5xl sm:text-8xl font-vibes text-[#c8a97e] text-center '>Menu</h1>
@@ -26,12 +29,12 @@ export default function Menu() {
 
 
                 {/* Filter Row */}
-                <div className='flex justify-center lg:mb-5'>
+                <div className='flex justify-center mt-5 justify-items-center lg:mb-5'>
                     {/* Fliter Type */}
                     <div>
                         <div className='flex justify-center flex-wrap mb-5 font-nunito'>
                             <button onClick={
-                                    () => setFoods(data)
+                                    () => setFoods(items)
                                 }
                                 className="relative inline-flex items-center justify-center p-0.5 mb-1 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
                                 <span className="relative px-5 py-1.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
@@ -78,8 +81,8 @@ export default function Menu() {
                 {/* Display foods */}
                 <div className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6 pt-4 pb-16'>
                     {
-                    foods.map((item, index) => (
-                        <div key={index}
+                    foods.map((item) => (
+                        <div key={item._id}
                             data-aos="zoom-in"
                             data-aos-duration="1000"
                             data-aos-easing="ease-in-out"
@@ -107,7 +110,7 @@ export default function Menu() {
                                 </div>
                                 <div className='px-2 mb-3'>
                                     <p>
-                                        <span className='bg-orange-500 text-white p-1 rounded-full'>
+                                        <span className='bg-orange-500 text-white px-3 py-1 rounded-full'>
                                             {
                                             item.price
                                         } </span>

@@ -13,7 +13,7 @@ export default function Signup() {
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile] = useUpdateProfile(auth);
     const navigate = useNavigate();
-    const [] = useToken(user || gUser)
+    const [token] = useToken(user || gUser)
 
     if (user || gUser) {
         navigate('/')
@@ -43,7 +43,7 @@ export default function Signup() {
     }
     return (
         <>
-            <div className=" container m-auto sm:p-4 lg:p-4 relative flex justify-center">
+            <div className=" 2xl:container m-auto sm:p-4 lg:p-4 relative flex justify-center">
                 <span className='absolute top-0 left-0 -z-10'>
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" className='w-full h-[610px] dark:bg-gray-900 bg-[#f6f7fb]' preserveAspectRatio="none" viewBox="0 0 1440 560">
                         <g mask="url(&quot;#SvgjsMask1013&quot;)" fill="none">

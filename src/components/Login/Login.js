@@ -36,7 +36,7 @@ export default function Login() {
     }
     return (
         <>
-            <div className="container m-auto sm:p-4 lg:p-5 relative h-screen flex ">
+            <div className="2xl:container m-auto sm:p-4 lg:p-5 relative h-screen flex ">
                 <span className='absolute top-0 left-0 -z-10'>
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" className='w-full h-screen dark:bg-gray-900 bg-[#f6f7fb]' preserveAspectRatio="none" viewBox="0 0 1440 560">
                         <g mask="url(&quot;#SvgjsMask1013&quot;)" fill="none">

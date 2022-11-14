@@ -1,16 +1,31 @@
 import React, {useState} from 'react'
-import {data} from '../../Data/data';
+import {useEffect} from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 import Icons from '../../Pages/Icons'
+import useItems from '../Hooks/useItems';
 
 export default function Menus() {
-    const [foods, setFoods] = useState(data);
+    const [items] = useItems();
+    const [foods, setFoods] = useState([]);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        setFoods(items)
+    }, [items])
+
 
     // Filter Type burgers/pizza/etc
     const filterType = (category) => {
-        setFoods(data.filter((item) => {
-            return item.category === category;
-        }));
+        const food = items.filter((item) => item.category === category)
+        setFoods(food)
     };
+
+    const orderNow =(id)=>{
+        navigate(`/singleitem/${id}`)
+    }
+
+
+
     return (
         <>
             <div className='h-screen bg-cover bg-center bg-no-repeat bg-hero flex justify-center items-center bg-fixed scroll-smooth  '>
@@ -36,7 +51,7 @@ export default function Menus() {
                 </div>
             </div>
 
-            <section className='w-full container m-auto'>
+            <section className='w-full 2xl:container m-auto'>
                 <div className='bg-white dark:bg-gray-900 pt-20 pb-10'>
                     <div className='relative w-full md:mb-5 ' data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-once="true">
                         <h1 className='text-5xl sm:text-8xl font-vibes text-[#c8a97e] text-center '>Menu</h1>
@@ -53,7 +68,7 @@ export default function Menus() {
                         <div>
                             <div className='flex justify-center flex-wrap mb-5 font-nunito'>
                                 <button onClick={
-                                        () => setFoods(data)
+                                        () => setFoods(items)
                                     }
                                     className="relative inline-flex items-center justify-center p-0.5 mb-1 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
                                     <span className="relative px-5 py-1.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
@@ -99,46 +114,48 @@ export default function Menus() {
 
                     {/* Display foods */}
                     <div className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6 pt-4 mb-14'>
-                    {
-                    foods.map((item, index) => (
-                        <div key={index}
-                            data-aos="zoom-in"
-                            data-aos-duration="1000"
-                            data-aos-easing="ease-in-out"
-                            data-aos-once="true">
-                            <div className='border shadow-md dark:hover:shadow-blue-600 rounded-lg hover:scale-105 duration-1000 cursor-pointer hover:border-blue-600'>
-                                <img src={
-                                        item.image
-                                    }
-                                    alt={
-                                        item.name
-                                    }
-                                    className='w-full h-[200px] object-cover rounded-t-lg'/>
-                                <div className='flex justify-between px-2 py-2 items-center'>
-                                    <p className='font-bold text-gray-800 dark:text-gray-300 font-playfair tracking-wide'>
-                                        {
-                                        item.name
-                                    }</p>
-
-                                    <button className="relative inline-flex items-center justify-center p-0.5 mr-1 overflow-hidden text-xs font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
-                                        <span className="relative px-2 py-1 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                                            Order Now
-                                        </span>
-                                    </button>
-
-                                </div>
-                                <div className='px-2 mb-3'>
-                                    <p>
-                                        <span className='bg-orange-500 text-white p-1 rounded-full'>
+                        {
+                        foods.map((item) => (
+                            <div key={
+                                    item._id
+                                }
+                                data-aos="zoom-in"
+                                data-aos-duration="1000"
+                                data-aos-easing="ease-in-out"
+                                data-aos-once="true">
+                                <div className='border shadow-md dark:hover:shadow-blue-600 rounded-lg hover:scale-105 duration-1000 cursor-pointer hover:border-blue-600'>
+                                    <img src={
+                                            item.image
+                                        }
+                                        alt={
+                                            item.name
+                                        }
+                                        className='w-full h-[200px] object-cover rounded-t-lg'/>
+                                    <div className='flex justify-between px-2 py-2 items-center'>
+                                        <p className='font-bold text-gray-800 dark:text-gray-300 font-playfair tracking-wide'>
                                             {
-                                            item.price
-                                        } </span>
-                                    </p>
+                                            item.name
+                                        }</p>
+
+                                        <button onClick={()=>orderNow(item._id)} className="relative inline-flex items-center justify-center p-0.5 mr-1 overflow-hidden text-xs font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
+                                            <span className="relative px-2 py-1 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                                Order Now
+                                            </span>
+                                        </button>
+
+                                    </div>
+                                    <div className='px-2 mb-3'>
+                                        <p>
+                                            <span className='bg-orange-500 text-white px-4 py-1 rounded-full'>
+                                                {
+                                                item.price
+                                            } </span>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))
-                } </div>
+                        ))
+                    } </div>
                 </div>
             </section>
 

@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import {Link} from 'react-router-dom'
 import auth from '../../firebase.init';
-import salmon from '../../images/salmon.jpg'
+
 
 export default function Navbar() {
     const [user] = useAuthState(auth);
@@ -39,7 +39,7 @@ export default function Navbar() {
         </>
     )
     return (
-        <div className="navbar bg-[#f6f7fb] dark:bg-base-100 sticky w-full top-0 z-50 font-nunito font-light container px-5 m-auto border-b-2 border-[#6c839b] dark:border-orange-500 text-black dark:text-current shadow-xl">
+        <div className="navbar bg-[#f6f7fb] dark:bg-base-100 sticky w-full top-0 z-50 font-nunito font-light 2xl:container px-5 m-auto border-b-2 border-[#6c839b] dark:border-orange-500 text-black dark:text-current shadow-xl">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0}
@@ -47,7 +47,7 @@ export default function Navbar() {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16"/></svg>
                     </label>
                     <ul tabIndex={0}
-                        className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white dark:bg-gray-900 rounded-box w-52 ">
+                        className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white dark:bg-gray-900 rounded-box w-52">
                         {menu} </ul>
                 </div>
                 <div>
@@ -60,7 +60,7 @@ export default function Navbar() {
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal p-0 font-medium tracking-wider">
+                <ul className="menu menu-horizontal p-0 font-semibold tracking-wider ">
                     {menu} </ul>
             </div>
             <div className="navbar-end">
@@ -75,18 +75,18 @@ export default function Navbar() {
                     </label>
 
                     <ul tabIndex={0}
-                        className="mt-2 p-2 shadow menu menu-compact dropdown-content text-sm bg-white  text-black dark:text-current dark:bg-gray-700 rounded-md w-56 font-nunito">
+                        className="mt-2 p-2 shadow menu menu-compact dropdown-content text-sm bg-white  text-black dark:text-current dark:bg-gray-700 rounded-md w-60 font-nunito">
                         <div className="py-3 px-4 text-sm text-black dark:text-white">
-                            <div>{user?.displayName}</div>
-                            <div className="font-medium truncate">{user?.email}</div>
+                            <div className='font-nunito font-semibold antialiased'>{user?.displayName}</div>
+                            <div className="font-medium truncate text-blue-600">{user?.email}</div>
                         </div>
                         <hr/>
                         <li>
-                            <a href="/menu" className="flex items-center py-2 px-4 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
+                            <Link to='/dashboard' className="flex items-center py-2 px-4 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
                                 <svg aria-hidden="true" className="mr-2 w-4 h-4 fill-current" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
                                     <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
-                                </svg>Dashboard</a>
+                                </svg>Dashboard</Link>
                         </li>
                         <li>
                             <a href="/about" className="flex items-center py-2 px-4 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
@@ -118,7 +118,7 @@ export default function Navbar() {
                         </li>
                     </ul>
 
-                </div>):(<Link to="/signup" className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2 text-center mr-2 mb-0">SignUp</Link>)
+                </div>):(<Link to="/login" className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2 text-center mr-2 mb-0">Login</Link>)
                 }
 
             </div>

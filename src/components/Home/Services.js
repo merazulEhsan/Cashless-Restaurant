@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Services() {
     return (
-        <section className='w-full p-2 md:p-10 container m-auto bg-[#f6f7fb] relative'>
+        <section className='w-full p-2 md:p-10 2xl:container m-auto bg-[#f6f7fb] relative'>
             <div className='relative w-full mt-10 mb-8' data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-once="true">
                 <h1 className='text-5xl sm:text-8xl font-vibes text-[#c8a97e] text-center'>Services</h1>
                 <span className='text-xl sm:text-5xl font-serif absolute left-1/4 -translate-y-6 sm:-translate-y-10 md:left-32 lg:left-1/4 xl:left-1/3 text-black font-black'>Catering Services</span>

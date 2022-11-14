@@ -27,7 +27,7 @@ export default function About() {
                 </div>
             </div>
 
-            <section className='bg-white container m-auto'>
+            <section className='bg-white 2xl:container m-auto'>
                <ChooseCard></ChooseCard>
             </section>
 
