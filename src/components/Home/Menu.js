@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 import useItems from '../Hooks/useItems';
 
 
 export default function Menu() {
     const [items] = useItems();
     const [foods, setFoods] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         setFoods(items)
@@ -15,6 +17,10 @@ export default function Menu() {
         const food = items.filter((item) => item.category === category)
         setFoods(food)
     };
+
+    const orderNow =(id)=>{
+        navigate(`/singleitem/${id}`)
+    }
 
     return (
         <section className='w-full 2xl:container m-auto relative'>
@@ -101,7 +107,7 @@ export default function Menu() {
                                         item.name
                                     }</p>
 
-                                    <button className="relative inline-flex items-center justify-center p-0.5 mr-1 overflow-hidden text-xs font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
+                                    <button onClick={()=>orderNow(item._id)} className="relative inline-flex items-center justify-center p-0.5 mr-1 overflow-hidden text-xs font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
                                         <span className="relative px-2 py-1 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                                             Order Now
                                         </span>
