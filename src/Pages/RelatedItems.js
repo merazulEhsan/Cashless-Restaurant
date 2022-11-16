@@ -1,24 +1,23 @@
 import React from 'react'
-import {useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 
-
-export default function RelatedItems({item, refetch}) {
+export default function RelatedItems({item}) {
 
     const navigate = useNavigate();
 
-    useEffect(() => {
-        refetch();
-    });
-
     const orderNow = (id) => {
-        navigate(`/singleitem/${id}`)
-        document.documentElement.scrollTop = 0; 
+        navigate(`/singleitem/${id}`);
+        window.scrollTo(0,0)
     }
+
+   
 
     return (
         <>
-            <div className='text-center p-5 card shadow-lg mb-5 dark:backdrop-blur-sm dark:bg-white/5 bg-opacity-30'>
+            <div className='text-center p-5 card shadow-lg mb-5 dark:backdrop-blur-sm dark:bg-white/5 bg-opacity-30'  data-aos="zoom-in"
+                            data-aos-duration="1000"
+                            data-aos-easing="ease-in-out"
+                            data-aos-once="true">
                 <div className=''>
                     <div className='h-60 w-60 after:'>
                         <img className='rounded-md shadow-md'

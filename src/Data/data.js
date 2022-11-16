@@ -51,7 +51,7 @@ export const data = [
       image:
         'https://images.unsplash.com/photo-1604382355076-af4b0eb60143?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cGl6emF8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
       price: '৳ 1299',
-      description:"The supreme pizza, or as we call it here in the Northeast, pizza with the works, is the ultimate pizza and features six classic toppings. The supreme pizza is traditionally topped with pepperoni, sausage, meatballs, mushrooms, green bell peppers, and onions. But not all of them are the same and some restaurants make theirs slightly different."
+      description:"The supreme pizza, or as we call it here in the Northeast, pizza with the works, is the ultimate pizza and features six classNameic toppings. The supreme pizza is traditionally topped with pepperoni, sausage, meatballs, mushrooms, green bell peppers, and onions. But not all of them are the same and some restaurants make theirs slightly different."
     },
     {
       id: 7,
@@ -69,7 +69,7 @@ export const data = [
       image:
         'https://images.unsplash.com/photo-1548369937-47519962c11a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Y2hlZXNlJTIwcGl6emF8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
       price: '৳ 950',
-      description:'The cheese pizza, or as we call it here in the Northeast, pizza with the works, is the ultimate pizza and features six classic toppings. The supreme pizza is traditionally topped with pepperoni, sausage, meatballs, mushrooms, green bell peppers, and onions. But not all of them are the same and some restaurants make theirs slightly different'
+      description:'The cheese pizza, or as we call it here in the Northeast, pizza with the works, is the ultimate pizza and features six classNameic toppings. The supreme pizza is traditionally topped with pepperoni, sausage, meatballs, mushrooms, green bell peppers, and onions. But not all of them are the same and some restaurants make theirs slightly different'
     },
     {
       id: 9,

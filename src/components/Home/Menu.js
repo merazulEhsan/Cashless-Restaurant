@@ -20,6 +20,7 @@ export default function Menu() {
 
     const orderNow =(id)=>{
         navigate(`/singleitem/${id}`)
+        document.documentElement.scrollTop = 0;
     }
 
     return (
@@ -35,7 +36,7 @@ export default function Menu() {
 
 
                 {/* Filter Row */}
-                <div className='flex justify-center mt-5 justify-items-center lg:mb-5'>
+                <div className='flex justify-center pt-10 justify-items-center lg:mb-5'>
                     {/* Fliter Type */}
                     <div>
                         <div className='flex justify-center flex-wrap mb-5 font-nunito'>
@@ -131,7 +132,7 @@ export default function Menu() {
             <span>
                 <span className='absolute left-0 -top-5 w-full'>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                        <path fill="#f6f7fb" fill-opacity="1" d="M0,160L40,170.7C80,181,160,203,240,208C320,213,400,203,480,186.7C560,171,640,149,720,133.3C800,117,880,107,960,122.7C1040,139,1120,181,1200,202.7C1280,224,1360,224,1400,224L1440,224L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path>
+                        <path fill="#f6f7fb" fillOpacity="1" d="M0,160L40,170.7C80,181,160,203,240,208C320,213,400,203,480,186.7C560,171,640,149,720,133.3C800,117,880,107,960,122.7C1040,139,1120,181,1200,202.7C1280,224,1360,224,1400,224L1440,224L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path>
                     </svg>
                 </span>
             </span>

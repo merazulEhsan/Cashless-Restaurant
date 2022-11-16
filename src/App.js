@@ -15,6 +15,10 @@ import Dashboard from './components/Dashboard/Dashboard';
 import MyOrders from './components/Dashboard/MyOrders';
 import Notifications from './components/Dashboard/Notifications';
 import SingleItem from './Pages/SingleItem';
+import Profile from './components/Dashboard/Profile';
+import NotFound from './components/NotFound/NotFound';
+import User from './components/Dashboard/User';
+import AddItem from './components/Dashboard/AddItem';
 
 function App() {
   return (
@@ -28,13 +32,17 @@ function App() {
       <Route path='/contact' element={<Contact></Contact>}></Route>
       <Route path='/login' element={<Login></Login>}></Route>
       <Route path='/signup' element={<Signup></Signup>}></Route>
+      <Route path='/profile' element={<Profile></Profile>}></Route>
       <Route path='/singleitem/:id' element={<SingleItem></SingleItem>}></Route>
 
 
       <Route path='/dashboard' element={<Dashboard></Dashboard>}>
         <Route index element={<MyOrders></MyOrders>}></Route>
         <Route path='notifications' element={<Notifications></Notifications>}></Route>
+        <Route path='user' element={<User></User>}></Route>
+        <Route path='additem' element={<AddItem></AddItem>}></Route>
       </Route>
+      <Route path="*" element={<NotFound></NotFound>}></Route>
     </Routes>
     <Footer></Footer>
     <ToastContainer/>

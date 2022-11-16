@@ -22,6 +22,7 @@ export default function Menus() {
 
     const orderNow =(id)=>{
         navigate(`/singleitem/${id}`)
+        document.documentElement.scrollTop = 0;
     }
 
 
