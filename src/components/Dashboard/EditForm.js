@@ -1,37 +1,11 @@
 import React from 'react'
-import {toast} from 'react-toastify';
 
-export default function AddItem() {
+export default function EditForm({editUser}) {
+    const {name, description, price, image, category} = editUser;
+    
 
-    const handleAddProduct = (e) => {
-        e.preventDefault();
-
-        const product = {
-            name: e.target.name.value,
-            category: e.target.category.value,
-            price: e.target.price.value,
-            image: e.target.image.value,
-            description: e.target.description.value
-        }
-
-        fetch(`http://localhost:4000/items`, {
-            method: "POST",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(product)
-        }).then(res => res.json()).then(data => {
-            if (data.acknowledged === true) {
-                toast.success("Order Placed Successfilly");
-                window.location.reload()
-            }
-        })
-
-    }
-    return (
-        <>
-
-            <form onSubmit={handleAddProduct}
+  return (
+    <form 
                 className="overflow-x-auto relative shadow-md sm:rounded-lg">
                 <div className="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
@@ -45,15 +19,15 @@ export default function AddItem() {
                     <div className="grid grid-cols-6 gap-6">
                         <div className="col-span-6 sm:col-span-3">
                             <label for="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Name</label>
-                            <input type="text" name="name" id="name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Product Name" required=""/>
+                            <input type="text" name="name" id="name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Product Name" value={name}  required/>
                         </div>
                         <div className="col-span-6 sm:col-span-3">
                             <label for="category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
-                            <input type="text" name="category" id="category" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Category" required=""/>
+                            <input type="text" name="category" id="category" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Category" value={category}  required=""/>
                         </div>
                         <div className="col-span-6 sm:col-span-3">
                             <label for="price" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
-                            <input type="text" name="price" id="price" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Price" required=""/>
+                            <input type="text" name="price" id="price" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={price} required=""/>
                         </div>
                         <div className="col-span-6 sm:col-span-3">
                             <label for="image" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image Url</label>
@@ -77,7 +51,5 @@ export default function AddItem() {
 
 
             </form>
-
-        </>
-    )
+  )
 }

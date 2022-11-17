@@ -38,7 +38,7 @@ export default function SingleItem() {
     const order ={
         pName: singleitem.name,
         pImg: singleitem.image,
-        pPrice: singleitem.price,
+        pPrice: parseInt(singleitem.price*count),
         pQuantity: count,
         pTable: parseInt(table),
         userName: user.displayName,

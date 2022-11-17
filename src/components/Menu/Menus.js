@@ -116,7 +116,7 @@ export default function Menus() {
                     {/* Display foods */}
                     <div className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6 pt-4 mb-14'>
                         {
-                        foods.map((item) => (
+                        foods?.map((item) => (
                             <div key={
                                     item._id
                                 }

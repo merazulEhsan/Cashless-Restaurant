@@ -88,7 +88,7 @@ export default function Menu() {
                 {/* Display foods */}
                 <div className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6 pt-4 pb-16'>
                     {
-                    foods.map((item) => (
+                    foods?.map((item) => (
                         <div key={item._id}
                             data-aos="zoom-in"
                             data-aos-duration="1000"
