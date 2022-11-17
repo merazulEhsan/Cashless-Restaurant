@@ -19,6 +19,10 @@ import Profile from './components/Dashboard/Profile';
 import NotFound from './components/NotFound/NotFound';
 import User from './components/Dashboard/User';
 import AddItem from './components/Dashboard/AddItem';
+import RequireAdmin from './components/Auth/RequireAdmin';
+import RequireAuth from './components/Auth/RequireAuth';
+import { ManageItems } from './components/Dashboard/ManageItems';
+import { AllOrders } from './components/Dashboard/AllOrders';
 
 function App() {
   return (
@@ -33,14 +37,16 @@ function App() {
       <Route path='/login' element={<Login></Login>}></Route>
       <Route path='/signup' element={<Signup></Signup>}></Route>
       <Route path='/profile' element={<Profile></Profile>}></Route>
-      <Route path='/singleitem/:id' element={<SingleItem></SingleItem>}></Route>
+      <Route path='/singleitem/:id' element={<RequireAuth><SingleItem></SingleItem></RequireAuth>}></Route>
 
 
       <Route path='/dashboard' element={<Dashboard></Dashboard>}>
         <Route index element={<MyOrders></MyOrders>}></Route>
         <Route path='notifications' element={<Notifications></Notifications>}></Route>
-        <Route path='user' element={<User></User>}></Route>
-        <Route path='additem' element={<AddItem></AddItem>}></Route>
+        <Route path='user' element={<RequireAdmin><User></User></RequireAdmin>}></Route>
+        <Route path='additem' element={<RequireAdmin><AddItem></AddItem></RequireAdmin>}></Route>
+        <Route path='manageitems' element={<RequireAdmin><ManageItems></ManageItems></RequireAdmin>}></Route>
+        <Route path='allorders' element={<RequireAdmin><AllOrders></AllOrders></RequireAdmin>}></Route>
       </Route>
       <Route path="*" element={<NotFound></NotFound>}></Route>
     </Routes>

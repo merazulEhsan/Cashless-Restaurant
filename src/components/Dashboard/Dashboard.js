@@ -1,7 +1,12 @@
 import React from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, Outlet } from 'react-router-dom'
+import auth from '../../firebase.init';
+import useChef from '../Hooks/useChef'
 
 export default function Dashboard() {
+    const [user] = useAuthState(auth)
+    const [chef] = useChef(user);
     return (
         <>
 
@@ -26,10 +31,16 @@ export default function Dashboard() {
                             <Link to="/dashboard/notifications">Notifications</Link>
                         </li>
                         <li>
-                            <Link to="/dashboard/user">All Users</Link>
+                            {chef && <Link to="/dashboard/user">All Users</Link>}
                         </li>
                         <li>
-                            <Link to="/dashboard/additem">Add Item</Link>
+                            {chef && <Link to="/dashboard/additem">Add Item</Link>}
+                        </li>
+                        <li>
+                            {chef && <Link to="/dashboard/manageitems">Manage Items</Link>}
+                        </li>
+                        <li>
+                            {chef && <Link to="/dashboard/allorders">All Orders</Link>}
                         </li>
 
                     </ul>
