@@ -66,6 +66,12 @@ export const AllOrders = () => {
                             Payment
                         </th>
                         <th scope="col" className="py-3 px-6">
+                            Set time
+                        </th>
+                        <th scope="col" className="py-3 px-6">
+                            Complete
+                        </th>
+                        <th scope="col" className="py-3 px-6">
                             Action
                         </th>
                     </tr>
@@ -93,6 +99,16 @@ export const AllOrders = () => {
                                     <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
                                       <button className="btn btn-xs px-4 dark:text-white btn-info">
                                         Pay
+                                      </button>
+                                    </td>
+                                    <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
+                                      <button className="btn btn-xs px-4 dark:text-white btn-info">
+                                        Time
+                                      </button>
+                                    </td>
+                                    <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
+                                      <button className="btn btn-xs px-4 dark:text-white btn-info">
+                                        Complete
                                       </button>
                                     </td>
                     

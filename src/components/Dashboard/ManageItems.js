@@ -1,26 +1,43 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import useItems from "../Hooks/useItems";
 import Loading from "../Loading/Loading";
 import EditForm from "./EditForm";
 
 export const ManageItems = () => {
-  const [items, isLoading, refetch] = useItems();
+  const [items, setItems] = useState([]);
   const [search, setSearch] = useState("");
   const [editUser, setEditUser] = useState([]);
-  const [itemDelete, setItemDelete] = useState(null)
-  
+  const [itemDelete, setItemDelete] = useState(null);
+  const [pageCount, setPageCount] = useState(0);
+  const [page, setPage] = useState(0);
+  const [size, setSize] = useState(5);
 
-  if (isLoading) {
-    return <Loading></Loading>;
-  }
+  useEffect(() => {
+    fetch(`http://localhost:4000/items?page=${page}&size=${size}`)
+      .then((res) => res.json())
+      .then((data) => setItems(data));
+  }, [page, size,items]);
+
+  useEffect(() => {
+    fetch("http://localhost:4000/itemsCount")
+      .then((res) => res.json())
+      .then((data) => {
+        const count = data.count;
+        const page = Math.ceil(count / size);
+        setPageCount(page);
+      });
+  }, [size]);
+
+  // if (isLoading) {
+  // return <Loading></Loading>;
+  // }
 
   const userFilter = items.filter((item) =>
     item?.name?.toLowerCase().includes(search)
   );
 
-
-  const handleItemDelete=()=>{
+  const handleItemDelete = () => {
     const url = `http://localhost:4000/items/${itemDelete}`;
     fetch(url, {
       method: "DELETE",
@@ -30,11 +47,10 @@ export const ManageItems = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        refetch();
         toast("Item Successfully Deleted");
         setItemDelete(null);
       });
-  }
+  };
   return (
     <>
       <div className="overflow-x-auto relative shadow-md sm:rounded-lg h-screen">
@@ -75,7 +91,7 @@ export const ManageItems = () => {
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-              <th scope="col" className="py-3 px-6">
+              <th scope="col" className="py-3 px-4">
                 <span className="">Sl.No</span>
               </th>
               <th scope="col" className="py-3 px-6">
@@ -102,8 +118,8 @@ export const ManageItems = () => {
           {userFilter.map((item, index) => (
             <tbody key={item._id}>
               <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
-                  {index + 1}
+                <td className="py-4 px-4 font-semibold text-gray-900 dark:text-white">
+                  {(page===0 &&(index + 1)) || (page>0 && (index + 1)+size*page)}
                 </td>
                 <td className="p-4 w-24">
                   <img
@@ -119,7 +135,7 @@ export const ManageItems = () => {
                 <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
                   {item.price}
                 </td>
-                <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
+                <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white text-justify">
                   {item.description}
                 </td>
                 <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
@@ -128,10 +144,20 @@ export const ManageItems = () => {
                     htmlFor="my-modal"
                     className="btn btn-sm border-none text-white btn-square btn-primary"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-5 h-5"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+                      />
                     </svg>
-
                   </label>
                 </td>
 
@@ -139,7 +165,7 @@ export const ManageItems = () => {
                 <td className="py-4 px-6">
                   {/* The button to open modal */}
                   <label
-                  onClick={()=>setItemDelete(item._id)}
+                    onClick={() => setItemDelete(item._id)}
                     htmlFor="my-modal-3"
                     className="btn btn-sm bg-red-600 hover:bg-red-800 border-none text-white btn-circle btn-error "
                   >
@@ -179,7 +205,11 @@ export const ManageItems = () => {
                         <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
                           Are you sure you want to delete this product?
                         </h3>
-                        <label htmlFor="my-modal-3" onClick={()=>handleItemDelete()} className="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                        <label
+                          htmlFor="my-modal-3"
+                          onClick={() => handleItemDelete()}
+                          className="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                        >
                           Yes, I'm sure
                         </label>
                         <label
@@ -197,18 +227,66 @@ export const ManageItems = () => {
           ))}{" "}
         </table>
 
-{/* edit Modal */}
+        <div>
+          <nav
+            aria-label="Page navigation example"
+            className="text-center py-8 bg-white dark:bg-gray-900"
+          >
+            <ul className="inline-flex -space-x-px">
+              <li>
+                <button
+                  onClick={() => setPage(page>0 && page - 1)}
+                  disabled={page === 0}
+                  className="py-3 px-4 ml-0 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:disabled:bg-gray-700 disabled:bg-gray-200"
+                >
+                  Previous
+                </button>
+              </li>
+
+              {[...Array(pageCount).keys()].map((number) => (
+                <li>
+                  <button
+                    onClick={() => setPage(number)}
+                    className={`py-3 px-3 leading-tight text-gray-500  border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ${
+                      page === number
+                        ? "bg-orange-500 text-white dark:bg-gray-600"
+                        : "bg-white"
+                    } `}
+                  >
+                    {number + 1}
+                  </button>
+                </li>
+              ))}
+
+              <li>
+                <button
+                  onClick={() => setPage(page < pageCount - 1 && page + 1)}
+                  disabled={page === pageCount - 1}
+                  className={`py-3 px-4 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:disabled:bg-gray-700 disabled:bg-gray-200`}
+                >
+                  Next
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        {/* edit Modal */}
         <input type="checkbox" id="my-modal" className="modal-toggle" />
         <div className="modal">
-          <div className="modal-box bg-white">
+          <label className="modal-box cursor-pointer bg-white">
             <label
               htmlFor="my-modal"
               className="btn btn-sm bg-red-600 hover:bg-red-800 border-none text-white btn-circle absolute right-2 top-2"
             >
               ✕
             </label>
-            <EditForm editUser={editUser}></EditForm>
-          </div>
+            <EditForm
+              editUser={editUser}
+              
+              setEditUser={setEditUser}
+            ></EditForm>
+          </label>
         </div>
       </div>
     </>

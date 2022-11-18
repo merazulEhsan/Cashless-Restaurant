@@ -23,6 +23,7 @@ import RequireAdmin from './components/Auth/RequireAdmin';
 import RequireAuth from './components/Auth/RequireAuth';
 import { ManageItems } from './components/Dashboard/ManageItems';
 import { AllOrders } from './components/Dashboard/AllOrders';
+import IndexDash from './components/Dashboard/IndexDash';
 
 function App() {
   return (
@@ -36,11 +37,12 @@ function App() {
       <Route path='/contact' element={<Contact></Contact>}></Route>
       <Route path='/login' element={<Login></Login>}></Route>
       <Route path='/signup' element={<Signup></Signup>}></Route>
-      <Route path='/profile' element={<Profile></Profile>}></Route>
+      <Route path='/profile' element={<RequireAuth><Profile></Profile></RequireAuth>}></Route>
       <Route path='/singleitem/:id' element={<RequireAuth><SingleItem></SingleItem></RequireAuth>}></Route>
 
 
-      <Route path='/dashboard' element={<Dashboard></Dashboard>}>
+      <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
+        <Route path='indexdash' element={<RequireAdmin><IndexDash></IndexDash></RequireAdmin>}></Route>
         <Route index element={<MyOrders></MyOrders>}></Route>
         <Route path='notifications' element={<Notifications></Notifications>}></Route>
         <Route path='user' element={<RequireAdmin><User></User></RequireAdmin>}></Route>

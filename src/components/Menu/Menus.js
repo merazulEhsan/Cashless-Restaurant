@@ -1,13 +1,28 @@
 import React, {useState} from 'react'
 import {useEffect} from 'react';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import Icons from '../../Pages/Icons'
-import useItems from '../Hooks/useItems';
+
 
 export default function Menus() {
-    const [items] = useItems();
+    const [items, setItems] = useState([]);
     const [foods, setFoods] = useState([]);
     const navigate = useNavigate();
+    const [pageCount, setPageCount] = useState(0)
+    const [page, setPage] = useState(0)
+    const [size, setSize] = useState(12);
+
+    useEffect(() => {
+        fetch(`http://localhost:4000/items?page=${page}&size=${size}`).then(res => res.json()).then(data => setItems(data))
+    }, [page, size])
+
+    useEffect(() => {
+        fetch("http://localhost:4000/itemsCount").then(res => res.json()).then(data => {
+            const count = data.count;
+            const page = Math.ceil(count / size)
+            setPageCount(page);
+        })
+    }, [])
 
     useEffect(() => {
         setFoods(items)
@@ -20,11 +35,10 @@ export default function Menus() {
         setFoods(food)
     };
 
-    const orderNow =(id)=>{
+    const orderNow = (id) => {
         navigate(`/singleitem/${id}`)
         document.documentElement.scrollTop = 0;
     }
-
 
 
     return (
@@ -114,9 +128,9 @@ export default function Menus() {
                         {/* Filter Price */} </div>
 
                     {/* Display foods */}
-                    <div className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6 pt-4 mb-14'>
+                    <div className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6 pt-4 pb-14'>
                         {
-                        foods?.map((item) => (
+                        foods ?. map((item) => (
                             <div key={
                                     item._id
                                 }
@@ -138,7 +152,10 @@ export default function Menus() {
                                             item.name
                                         }</p>
 
-                                        <button onClick={()=>orderNow(item._id)} className="relative inline-flex items-center justify-center p-0.5 mr-1 overflow-hidden text-xs font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
+                                        <button onClick={
+                                                () => orderNow(item._id)
+                                            }
+                                            className="relative inline-flex items-center justify-center p-0.5 mr-1 overflow-hidden text-xs font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
                                             <span className="relative px-2 py-1 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                                                 Order Now
                                             </span>
@@ -163,28 +180,44 @@ export default function Menus() {
 
             <div>
 
-                <nav aria-label="Page navigation example" className='text-center mb-10'>
+                <nav aria-label="Page navigation example" className='text-center pb-10 bg-white dark:bg-gray-900'>
                     <ul className="inline-flex -space-x-px">
                         <li>
-                            <button className="py-2 px-3 ml-0 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</button>
+                            <button onClick={
+                                    () => setPage(page > pageCount && page - 1)
+                                }
+                                disabled={
+                                    page === 0
+                                }
+                                className="py-3 px-4 ml-0 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:disabled:bg-gray-700 disabled:bg-gray-200">Previous</button>
                         </li>
+
+                        {
+                        [...Array(pageCount).keys()].map((number) => (
+                            <li>
+                                <button onClick={
+                                        () => setPage(number)
+                                    }
+                                    className={
+                                        `py-3 px-3 leading-tight text-gray-500  border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ${
+                                            page === number ? 'bg-orange-500 text-white dark:bg-gray-600' : 'bg-white'
+                                        } `
+                                }>
+                                    {
+                                    number + 1
+                                }</button>
+                            </li>
+                        ))
+                    }
+
                         <li>
-                            <button className="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</button>
-                        </li>
-                        <li>
-                            <button className="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</button>
-                        </li>
-                        <li>
-                            <button aria-current="page" className="py-2 px-3 text-blue-600 bg-blue-50 border border-gray-300 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</button>
-                        </li>
-                        <li>
-                            <button className="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</button>
-                        </li>
-                        <li>
-                            <button className="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</button>
-                        </li>
-                        <li>
-                            <button className="py-2 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</button>
+                            <button onClick={
+                                    () => setPage(page < pageCount - 1 && page + 1)
+                                }
+                                disabled={
+                                    page === pageCount - 1
+                                }
+                                className={`py-3 px-4 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:disabled:bg-gray-700 disabled:bg-gray-200`}>Next</button>
                         </li>
                     </ul>
                 </nav>
