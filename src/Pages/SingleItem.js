@@ -28,8 +28,8 @@ export default function SingleItem() {
   }, [id, items]);
 
   //Filter by category
-  const category = items.filter(
-    (item) => item.category === singleitem.category
+  const category = items?.filter(
+    (item) => item?.category === singleitem.category
   );
 
   const handlePlaceOrder = (e) =>{
@@ -70,13 +70,13 @@ export default function SingleItem() {
           <div className="lg:w-1/3">
             <img
               className="w-96 md:h-96   rounded-sm shadow-2xl"
-              src={singleitem.image}
+              src={singleitem?.image}
               alt=""
             />
           </div>
           <form className="lg:w-1/3">
             <h1 className="text-3xl dark:text-white font-playfair bg-clip-text text-transparent bg-gradient-to-b from-blue-700  to-pink-500 font-black tracking-wider mb-2">
-              {singleitem.name}
+              {singleitem?.name}
             </h1>
             <div className="flex items-center">
               <svg
@@ -134,10 +134,10 @@ export default function SingleItem() {
               </p>
             </div>
             <p className="text-lg text-black dark:text-gray-300">
-              {singleitem.description}
+              {singleitem?.description}
             </p>
             <p className="text-orange-500 font-semibold text-lg mt-4">
-              Price: {singleitem.price}
+              Price: ৳ {singleitem?.price}
             </p>
 
             <div className="flex items-center space-x-3 mt-3">
@@ -145,7 +145,7 @@ export default function SingleItem() {
                 Quantity:
               </span>
               <button
-                onClick={() => setCount(count - 1)}
+                onClick={() => setCount(count =>count - 1)}
                 className="inline-flex items-center p-1 text-sm font-medium text-gray-500 bg-white rounded-full border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
                 type="button"
               >
@@ -176,7 +176,7 @@ export default function SingleItem() {
                 />
               </div>
               <button
-                onClick={() => setCount(count + 1)}
+                onClick={() => setCount(count=>count + 1)}
                 className="inline-flex items-center p-1 text-sm font-medium text-gray-500 bg-white rounded-full border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
                 type="button"
               >
@@ -249,10 +249,10 @@ export default function SingleItem() {
             navigation={true}
             className="mySwiper"
           >
-            {category.map((item) => {
+            {category?.map((item) => {
               return (
                 <SwiperSlide key={item._id}>
-                  {" "}
+                 
                   <RelatedItems key={item._id} item={item}></RelatedItems>
                 </SwiperSlide>
               );

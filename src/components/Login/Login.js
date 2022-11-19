@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading'
 import { Toast } from 'flowbite-react';
 import useToken from '../Hooks/useToken';
+import { toast } from 'react-toastify';
 
 
 export default function Login() {
@@ -21,7 +22,7 @@ export default function Login() {
         return <Loading></Loading>
     }
     if(error || gerror){
-        Toast.warning(error.message)
+        toast.warning(error.message)
     }
 
     const handleLogin =async (event)=>{

@@ -118,7 +118,7 @@ export default function Menu() {
                                 <div className='px-2 mb-3'>
                                     <p>
                                         <span className='bg-orange-500 text-white px-3 py-1 rounded-full'>
-                                            {
+                                        ৳ {
                                             item.price
                                         } </span>
                                     </p>

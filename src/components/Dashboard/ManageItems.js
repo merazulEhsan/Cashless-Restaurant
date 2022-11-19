@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import useItems from "../Hooks/useItems";
-import Loading from "../Loading/Loading";
+
 import EditForm from "./EditForm";
 
 export const ManageItems = () => {
@@ -58,9 +57,10 @@ export const ManageItems = () => {
           <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
             Manage Items
           </h3>
+          
         </div>
-        <div className="px-1 pb-4 bg-white dark:bg-gray-900">
-          <label for="table-search" className="sr-only">
+        <div className="px-2 pb-4 bg-white dark:bg-gray-900 flex items-center justify-between">
+          <label htmlFor="table-search" className="sr-only">
             Search
           </label>
           <div className="relative">
@@ -87,6 +87,19 @@ export const ManageItems = () => {
               placeholder="Search for items"
             />
           </div>
+          <div>
+                <span className="font-semibold">Show page</span>
+                <select onClick={
+                        (e) => setSize(e.target.value)
+                    }
+                    className="select select-success  select-sm w-1/8 text-center pt-0 bg-white ml-2">
+                    <option value='5'>5</option>
+                    <option value='10'>10</option>
+                    <option value='15'>15</option>
+                    <option value='20'>20</option>
+
+                </select>
+            </div>
         </div>
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -224,7 +237,7 @@ export const ManageItems = () => {
                 </td>
               </tr>
             </tbody>
-          ))}{" "}
+          ))}
         </table>
 
         <div>
@@ -244,7 +257,7 @@ export const ManageItems = () => {
               </li>
 
               {[...Array(pageCount).keys()].map((number) => (
-                <li>
+                <li key={number}>
                   <button
                     onClick={() => setPage(number)}
                     className={`py-3 px-3 leading-tight text-gray-500  border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ${

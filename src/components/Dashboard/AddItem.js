@@ -44,24 +44,24 @@ export default function AddItem() {
                 <div className="p-6 space-y-6">
                     <div className="grid grid-cols-6 gap-6">
                         <div className="col-span-6 sm:col-span-3">
-                            <label for="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Name</label>
+                            <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Name</label>
                             <input type="text" name="name" id="name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Product Name" required=""/>
                         </div>
                         <div className="col-span-6 sm:col-span-3">
-                            <label for="category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
+                            <label htmlFor="category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
                             <input type="text" name="category" id="category" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Category" required=""/>
                         </div>
                         <div className="col-span-6 sm:col-span-3">
-                            <label for="price" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
+                            <label htmlFor="price" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
                             <input type="text" name="price" id="price" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Price" required=""/>
                         </div>
                         <div className="col-span-6 sm:col-span-3">
-                            <label for="image" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image Url</label>
+                            <label htmlFor="image" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image Url</label>
                             <input type="text" name="image" id="image" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Image Url" required=""/>
                         </div>
                         <div className="col-span-6 sm:col-span-6">
 
-                            <label for="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+                            <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
                             </label>
                             <textarea id="description" rows="4" name='description' className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-5pur00 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
 

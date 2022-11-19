@@ -58,7 +58,7 @@ export default function EditForm({editUser,  setEditUser}) {
                     <div className="p-6 space-y-4">
                         <div className="grid grid-cols-6 gap-4">
                             <div className="col-span-6 sm:col-span-3">
-                                <label for="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Name</label>
+                                <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Name</label>
                                 <input defaultValue={name}
                                     type="text"
                                     name="name"
@@ -68,7 +68,7 @@ export default function EditForm({editUser,  setEditUser}) {
                                     required/>
                             </div>
                             <div className="col-span-6 sm:col-span-3">
-                                <label for="category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
+                                <label htmlFor="category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
                                 <input defaultValue={category}
                                     type="text"
                                     name="category"
@@ -78,7 +78,7 @@ export default function EditForm({editUser,  setEditUser}) {
                                     required=""/>
                             </div>
                             <div className="col-span-6 sm:col-span-3">
-                                <label for="price" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
+                                <label htmlFor="price" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
                                 <input defaultValue={price}
                                     type="number"
                                     name="price"
@@ -87,7 +87,7 @@ export default function EditForm({editUser,  setEditUser}) {
                                     placeholder='price'/>
                             </div>
                             <div className="col-span-6 sm:col-span-3">
-                                <label for="image" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image Url</label>
+                                <label htmlFor="image" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image Url</label>
                                 <input defaultValue={image}
                                     type="text"
                                     name="image"
@@ -98,7 +98,7 @@ export default function EditForm({editUser,  setEditUser}) {
                             </div>
                             <div className="col-span-6 sm:col-span-6">
 
-                                <label for="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+                                <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
                                 </label>
                                 <textarea defaultValue={description}
                                     id="description"

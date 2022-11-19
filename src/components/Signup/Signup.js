@@ -26,6 +26,7 @@ export default function Signup() {
     if (error || gError) {
         toast.error(error ?. message)
     }
+
     const handleCreateAccount = async (event) => {
         event.preventDefault();
         const name = event.target.name.value;
@@ -33,12 +34,15 @@ export default function Signup() {
         const password = event.target.password.value;
         const cpassword = event.target.cpassword.value;
 
-        if (password === cpassword) {
+
+        if(error){
+            return toast.warning(error)
+        }
+
+        if ( /@g(oogle)?mail\.com$/.test(email) && password === cpassword) {
             await createUserWithEmailAndPassword(email, password);
             await updateProfile({displayName: name});
-            if (!error) {
-                toast.success('Account Created')
-            }
+            
         }
     }
     return (

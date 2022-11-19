@@ -68,7 +68,7 @@ export default function User() {
           </h3>
         </div>
         <div className="px-1 pb-4 bg-white dark:bg-gray-900">
-          <label for="table-search" className="sr-only">
+          <label htmlFor="table-search" className="sr-only">
             Search
           </label>
           <div className="relative">

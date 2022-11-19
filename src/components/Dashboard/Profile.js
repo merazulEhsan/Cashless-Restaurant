@@ -9,6 +9,7 @@ export default function Profile() {
 
 
     const [user] = useAuthState(auth);
+    console.log(user);
     const [updateProfile, updating, updatEerror] = useUpdateProfile(auth);
 
     if (updatEerror) {

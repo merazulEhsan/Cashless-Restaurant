@@ -8,6 +8,7 @@ export default function Menus() {
     const [items, setItems] = useState([]);
     const [foods, setFoods] = useState([]);
     const navigate = useNavigate();
+
     const [pageCount, setPageCount] = useState(0)
     const [page, setPage] = useState(0)
     const [size, setSize] = useState(12);
@@ -22,7 +23,7 @@ export default function Menus() {
             const page = Math.ceil(count / size)
             setPageCount(page);
         })
-    }, [])
+    }, [size])
 
     useEffect(() => {
         setFoods(items)
@@ -31,7 +32,7 @@ export default function Menus() {
 
     // Filter Type burgers/pizza/etc
     const filterType = (category) => {
-        const food = items.filter((item) => item.category === category)
+        const food = items?.filter((item) => item.category === category)
         setFoods(food)
     };
 
@@ -130,7 +131,7 @@ export default function Menus() {
                     {/* Display foods */}
                     <div className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6 pt-4 pb-14'>
                         {
-                        foods ?. map((item) => (
+                        foods?.map((item) => (
                             <div key={
                                     item._id
                                 }
@@ -165,7 +166,7 @@ export default function Menus() {
                                     <div className='px-2 mb-3'>
                                         <p>
                                             <span className='bg-orange-500 text-white px-4 py-1 rounded-full'>
-                                                {
+                                            ৳ {
                                                 item.price
                                             } </span>
                                         </p>
@@ -194,7 +195,7 @@ export default function Menus() {
 
                         {
                         [...Array(pageCount).keys()].map((number) => (
-                            <li>
+                            <li key={number}>
                                 <button onClick={
                                         () => setPage(number)
                                     }

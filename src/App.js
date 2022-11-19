@@ -24,6 +24,8 @@ import RequireAuth from './components/Auth/RequireAuth';
 import { ManageItems } from './components/Dashboard/ManageItems';
 import { AllOrders } from './components/Dashboard/AllOrders';
 import IndexDash from './components/Dashboard/IndexDash';
+import useChef from './components/Hooks/useChef';
+import DeliveredItems from './components/Dashboard/DeliveredItems';
 
 function App() {
   return (
@@ -49,6 +51,7 @@ function App() {
         <Route path='additem' element={<RequireAdmin><AddItem></AddItem></RequireAdmin>}></Route>
         <Route path='manageitems' element={<RequireAdmin><ManageItems></ManageItems></RequireAdmin>}></Route>
         <Route path='allorders' element={<RequireAdmin><AllOrders></AllOrders></RequireAdmin>}></Route>
+        <Route path='delivered' element={<RequireAdmin><DeliveredItems/></RequireAdmin>}></Route>
       </Route>
       <Route path="*" element={<NotFound></NotFound>}></Route>
     </Routes>
