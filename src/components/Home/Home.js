@@ -8,6 +8,7 @@ import Reservation from './Reservation';
 
 export default function Home() { // console.log(data);
 
+
     return (
         <>
             <div className='h-screen bg-cover bg-center bg-no-repeat bg-hero-home flex justify-center items-center bg-fixed scroll-smooth'>
@@ -21,7 +22,7 @@ export default function Home() { // console.log(data);
                         <p className='text-center p-7 font-nunito leading-6 text-lg' data-aos="fade-up" data-aos-duration="2500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem sit molestias et cupiditate, nostrum aut sunt mollitia recusandae at cum ut omnis nesciunt magni est tempora, vitae eaque! Sint, mollitia.</p>
 
                         <div className='text-center ' data-aos="fade-up" data-aos-duration="2000" data-aos-easing="ease-in-out" data-aos-once="false">
-                            <button className='btn rounded-3xl px-6 bg-orange-500 btn-md border border-none text-white text-xs'>Explore More
+                            <button onClick={()=>window.scrollBy(0, window.innerHeight)} className='btn rounded-3xl px-6 bg-orange-500 btn-md border border-none text-white text-xs'>Explore More
                             </button>
                         </div>
 

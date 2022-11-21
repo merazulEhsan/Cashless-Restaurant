@@ -16,7 +16,7 @@ export default function SingleItem() {
   const [user] = useAuthState(auth)
   const { id } = useParams();
   const [count, setCount] = useState(1);
-  const [table, setTable] = useState(1);
+  const [table, setTable] = useState(2);
   const [items] = useItems();
   const [singleitem, setSingleitem] = useState([]);
   const navigate = useNavigate()

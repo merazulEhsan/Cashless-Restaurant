@@ -23,19 +23,19 @@ export default function Navbar() {
     const menu = (
         <>
             <li>
-                <Link to='/'>Home</Link>
+                <Link onClick={()=>window.scrollTo(0, 0)} to='/'>Home</Link>
+            </li>
+            <li> 
+                <Link onClick={()=>window.scrollTo(0,0)} to='/menu'>Menu</Link>
             </li>
             <li>
-                <Link to='/menu'>Menu</Link>
+                <Link onClick={()=>window.scrollTo(0,0)} to='/gallery'>Gallery</Link>
             </li>
             <li>
-                <Link to='/gallery'>Gallery</Link>
+                <Link onClick={()=>window.scrollTo(0,0)} to='/about'>About</Link>
             </li>
             <li>
-                <Link to='/about'>About</Link>
-            </li>
-            <li>
-                <Link to='/contact'>Contact</Link>
+                <Link onClick={()=>window.scrollTo(0,0)} to='/contact'>Contact</Link>
             </li>
         </>
     )

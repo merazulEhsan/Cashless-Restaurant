@@ -24,8 +24,9 @@ import RequireAuth from './components/Auth/RequireAuth';
 import { ManageItems } from './components/Dashboard/ManageItems';
 import { AllOrders } from './components/Dashboard/AllOrders';
 import IndexDash from './components/Dashboard/IndexDash';
-import useChef from './components/Hooks/useChef';
 import DeliveredItems from './components/Dashboard/DeliveredItems';
+import Review from './components/Dashboard/Review';
+import Reservation from './components/Dashboard/Reservations';
 
 function App() {
   return (
@@ -47,11 +48,13 @@ function App() {
         <Route path='indexdash' element={<RequireAdmin><IndexDash></IndexDash></RequireAdmin>}></Route>
         <Route index element={<MyOrders></MyOrders>}></Route>
         <Route path='notifications' element={<Notifications></Notifications>}></Route>
+        <Route path='review' element={<Review></Review>}></Route>
         <Route path='user' element={<RequireAdmin><User></User></RequireAdmin>}></Route>
         <Route path='additem' element={<RequireAdmin><AddItem></AddItem></RequireAdmin>}></Route>
         <Route path='manageitems' element={<RequireAdmin><ManageItems></ManageItems></RequireAdmin>}></Route>
         <Route path='allorders' element={<RequireAdmin><AllOrders></AllOrders></RequireAdmin>}></Route>
         <Route path='delivered' element={<RequireAdmin><DeliveredItems/></RequireAdmin>}></Route>
+        <Route path='reservations' element={<RequireAdmin><Reservation/></RequireAdmin>}></Route>
       </Route>
       <Route path="*" element={<NotFound></NotFound>}></Route>
     </Routes>

@@ -1,7 +1,9 @@
 import React from 'react'
+import { useState } from 'react';
 import {toast} from 'react-toastify';
 import img from '../../images/YG4RVTTXWRFWLAVHKLYVP74HN4.jpg'
 export default function Reservation() {
+    const [select, setSelect] = useState(0)
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -11,6 +13,7 @@ export default function Reservation() {
             time: e.target.time.value,
             date: e.target.date.value,
             email: e.target.email.value,
+            person: select,
         }
 
         const url = `http://localhost:4000/reservation`;
@@ -63,11 +66,29 @@ export default function Reservation() {
                                 <label htmlFor="small_standard" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Time</label>
                             </div>
                         </div>
-                        <div className='mt-7'>
+                        <div className='mt-7 flex justify-between gap-6 md:gap-4 lg:gap-1'>
                             <div className="relative z-0">
                                 <input name='email' type="text" id="small_standard" className="block py-2 px-0 w-full text-sm  bg-transparent border-0 border-b-2 border-gray-300 appearance-none text-white dark:border-gray-600 dark:focus:border-white focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" "/>
                                 <label htmlFor="small_standard" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
                             </div>
+                            <div className="mt-5">
+                            <span className="mr-3 dark:text-white text-white text-md font-semibold">
+                Person:
+              </span>
+             
+              <select
+                
+                onChange={(e)=>setSelect(e.target.value)}
+                className="select select-border-b-secondary border-black select-sm w-24 p-0 pl-4 max-w-xs text-white"
+              >
+                <option defaultChecked>Select</option>
+                <option>2</option>
+                <option>4</option>
+                <option>5</option>
+                <option>7</option>
+                <option>10+</option>
+              </select>
+            </div>
                         </div>
                         <div className='lg:mt-10 mt-5 md:mt-6'>
                             <button className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">

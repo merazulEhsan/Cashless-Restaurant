@@ -23,7 +23,7 @@ export default function IndexDash() { // const[revenue, setRevenue] = useState(n
         <div>
             <div className="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                    ADD ITEM
+                    Dashboard
                 </h3>
             </div>
 

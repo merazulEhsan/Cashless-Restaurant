@@ -113,7 +113,7 @@ export default function MyOrders() {
                           clipRule="evenodd"
                         />
                       </svg>
-                      {order?.deliveryTime} min
+                      {order?.deliveryTime ? order.deliveryTime + 'min': "pending"}
                     </span>
                   </td>
 

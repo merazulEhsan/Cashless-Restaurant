@@ -12,8 +12,24 @@ import img from '../../images/03_Gastro-Webseiten-Sliderbilder.jpg';
 // import required modules
 import {Pagination ,Autoplay,Navigation} from "swiper";
 import { Parallax } from 'react-parallax';
+import { useQuery } from 'react-query';
+import Loading from '../Loading/Loading';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 export default function Review() {
+    const [review, setReview]= useState([])
+
+    // const {data, isLoading} = useQuery('review', ()=>{fetch(`http://localhost:4000/review`).then(res=>res.json())})
+
+    // if(isLoading){
+    //     return <Loading></Loading>
+    // }
+
+    useEffect(()=>{
+        fetch(`http://localhost:4000/review`).then(res=>res.json().then(data=> setReview(data)))
+    },[])
+
   return (
     <Parallax bgImage={img}  strength={300} >
 
@@ -26,7 +42,7 @@ export default function Review() {
 
                 <Swiper
                     slidesPerView={1}
-                    spaceBetween={0}
+                    spaceBetween={30}
                     pagination={{
                     clickable: true,
                     }}
@@ -41,77 +57,27 @@ export default function Review() {
                     },
                     1024: {
                         slidesPerView: 3,
+                        spaceBetween:20
                         
                     },
                     }}
                     navigation={true}
                     modules={[Pagination,Autoplay, Navigation]}
-                    className="mySwiper cursor-pointer "
+                    className="mySwiper cursor-pointer p-5"
                     data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-once="true"
                 >
-                    <SwiperSlide>
-                        <div className='text-center p-5'>
+                    {review?.map(review => <SwiperSlide>
+                        <div className='text-center p-5 bg-black/30 backdrop:blur-md card'>
                             <div className='  mb-7 mt-7 flex justify-center'>
-                                <div className='h-24 w-24 rounded-full bg-slate-800'>
-                                
-
+                                <div >
+                                    <img className='h-20 w-20 rounded-full bg-slate-800' src={review?.image} alt="" />
                                 </div>
                             </div>
-                            <p className='text-gray-300 '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex dolores maiores animi deserunt consequatur praesentium quos, aperiam fuga fugit dolorum.</p>
-                            <h1 className='mt-5 text-white font-playfair font-extrabold text-2xl'>Rose Handerson</h1>
+                            <p className='text-gray-300 '>{review?.description.length > 180 ? review?.description.slice(0,180) + '.........':review?.description }</p>
+                            <h1 className='mt-5 text-white font-mono font-extrabold text-2xl'>{review?.name}</h1>
                             <p className='text-white tracking-widest font-nunito text-lg mt-1 mb-5'>Customer</p>
                         </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='text-center p-5'>
-                            <div className='  mb-7 mt-7 flex justify-center'>
-                                <div className='h-24 w-24 rounded-full bg-slate-800'>
-                                    
-                                </div>
-                            </div>
-                            <p className='text-gray-300 '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex dolores maiores animi deserunt consequatur praesentium quos, aperiam fuga fugit dolorum.</p>
-                            <h1 className='mt-5 text-white font-playfair font-extrabold text-2xl'>Rose Handerson</h1>
-                            <p className='text-white tracking-widest font-nunito text-lg mt-1 mb-5'>Customer</p>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='text-center p-5'>
-                            <div className='  mb-7 mt-7 flex justify-center'>
-                                <div className='h-24 w-24 rounded-full bg-slate-800'>
-                                    
-                                </div>
-                            </div>
-                            <p className='text-gray-300 '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex dolores maiores animi deserunt consequatur praesentium quos, aperiam fuga fugit dolorum.</p>
-                            <h1 className='mt-5 text-white font-playfair font-extrabold text-2xl'>Rose Handerson</h1>
-                            <p className='text-white tracking-widest font-nunito text-lg mt-1 mb-5'>Customer</p>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='text-center p-5'>
-                            <div className='  mb-7 mt-7 flex justify-center'>
-                                <div className='h-24 w-24 rounded-full bg-slate-800'>
-                                    
-                                </div>
-                            </div>
-                            <p className='text-gray-300 '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex dolores maiores animi deserunt consequatur praesentium quos, aperiam fuga fugit dolorum.</p>
-                            <h1 className='mt-5 text-white font-playfair font-extrabold text-2xl'>Rose Handerson</h1>
-                            <p className='text-white tracking-widest font-nunito text-lg mt-1 mb-5'>Customer</p>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='text-center p-5'>
-                            <div className='  mb-7 mt-7 flex justify-center'>
-                                <div className='h-24 w-24 rounded-full bg-slate-800'>
-                                    
-                                </div>
-                            </div>
-                            <p className='text-gray-300 '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex dolores maiores animi deserunt consequatur praesentium quos, aperiam fuga fugit dolorum.</p>
-                            <h1 className='mt-5 text-white font-playfair font-extrabold text-2xl'>Rose Handerson</h1>
-                            <p className='text-white tracking-widest font-nunito text-lg mt-1 mb-5'>Customer</p>
-                        </div>
-                    </SwiperSlide>
-                    
-                    
+                    </SwiperSlide>)}
                     
                 </Swiper>
                 </div>
