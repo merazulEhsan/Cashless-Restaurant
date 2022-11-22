@@ -33,26 +33,25 @@ function App() {
     <>
     <Navbar></Navbar>
     <Routes>
-      <Route path='/' element={<Home></Home>}></Route>
-      <Route path='/menu' element={<Menu></Menu>}></Route>
-      <Route path='/gallery' element={<Gallery></Gallery>}></Route>
-      <Route path='/about' element={<About></About>}></Route>
-      <Route path='/contact' element={<Contact></Contact>}></Route>
-      <Route path='/login' element={<Login></Login>}></Route>
-      <Route path='/signup' element={<Signup></Signup>}></Route>
-      <Route path='/profile' element={<RequireAuth><Profile></Profile></RequireAuth>}></Route>
-      <Route path='/singleitem/:id' element={<RequireAuth><SingleItem></SingleItem></RequireAuth>}></Route>
+      <Route path='/' element={<Home/>}></Route>
+      <Route path='/menu' element={<Menu/>}></Route>
+      <Route path='/gallery' element={<Gallery/>}></Route>
+      <Route path='/about' element={<About/>}></Route>
+      <Route path='/contact' element={<Contact/>}></Route>
+      <Route path='/login' element={<Login/>}></Route>
+      <Route path='/signup' element={<Signup/>}></Route>
+      <Route path='/profile' element={<RequireAuth><Profile/></RequireAuth>}></Route>
+      <Route path='/singleitem/:id' element={<RequireAuth><SingleItem/></RequireAuth>}></Route>
 
-
-      <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
-        <Route path='indexdash' element={<RequireAdmin><IndexDash></IndexDash></RequireAdmin>}></Route>
+      <Route path='/dashboard' element={<RequireAuth><Dashboard/></RequireAuth>}>
+        <Route path='indexdash' element={<RequireAdmin><IndexDash/></RequireAdmin>}></Route>
         <Route index element={<MyOrders></MyOrders>}></Route>
-        <Route path='notifications' element={<Notifications></Notifications>}></Route>
-        <Route path='review' element={<Review></Review>}></Route>
-        <Route path='user' element={<RequireAdmin><User></User></RequireAdmin>}></Route>
-        <Route path='additem' element={<RequireAdmin><AddItem></AddItem></RequireAdmin>}></Route>
-        <Route path='manageitems' element={<RequireAdmin><ManageItems></ManageItems></RequireAdmin>}></Route>
-        <Route path='allorders' element={<RequireAdmin><AllOrders></AllOrders></RequireAdmin>}></Route>
+        <Route path='notifications' element={<Notifications/>}></Route>
+        <Route path='review' element={<Review/>}></Route>
+        <Route path='user' element={<RequireAdmin><User/></RequireAdmin>}></Route>
+        <Route path='additem' element={<RequireAdmin><AddItem/></RequireAdmin>}></Route>
+        <Route path='manageitems' element={<RequireAdmin><ManageItems/></RequireAdmin>}></Route>
+        <Route path='allorders' element={<RequireAdmin><AllOrders/></RequireAdmin>}></Route>
         <Route path='delivered' element={<RequireAdmin><DeliveredItems/></RequireAdmin>}></Route>
         <Route path='reservations' element={<RequireAdmin><Reservation/></RequireAdmin>}></Route>
       </Route>
