@@ -43,6 +43,7 @@ export default function SingleItem() {
         pTable: parseInt(table),
         userName: user.displayName,
         email: user.email,
+        date: new Date().toDateString(),
     
     }
 

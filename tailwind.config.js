@@ -23,6 +23,7 @@ module.exports = {
                     'Playfair Display', 'serif'
                 ],
                 'vibes': 'Great Vibes, cursive',
+                'marck': ['Marck Script', 'cursive']
             }
         },
     },

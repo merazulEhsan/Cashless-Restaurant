@@ -20,7 +20,7 @@ export default function Services() {
                         </svg>
                     </div>
                     <h1 className='font-serif font-black text-2xl mt-4 mb-3'>Birthday Party</h1>
-                    <p className='font-nunito font-medium text-lg text-gray-500'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore vel tenetur dolores enim nemo adipisci magni labore soluta repellat laboriosam!</p>
+                    <p className='font-nunito font-medium text-lg text-gray-500'> We are famous for hosting ravishing private social parties. Our spacious banquet hall with a centered stage is the perfect premise to host the upcoming birthday for your loved one. With our continuous support from event manager, you can rest easy and enjoy the festivity leading up to big moment while we worry about the details going into the venue.</p>
 
                 </div>
                 <div className='text-black' data-aos="fade-up" data-aos-duration="1500" data-aos-easing="ease-in-out" data-aos-once="true">
@@ -74,7 +74,7 @@ export default function Services() {
 
                     </div>
                     <h1 className='font-serif font-black text-2xl mt-4 mb-3'>Business Meetings</h1>
-                    <p className='font-nunito font-medium text-lg text-gray-500'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore vel tenetur dolores enim nemo adipisci magni labore soluta repellat laboriosam!</p>
+                    <p className='font-nunito font-medium text-lg text-gray-500'>Add class and elegance to any meeting. Our executive boardroom Parliament has everything you need to get down to business. Fewer conferences and meeting experience could reach the level of supremacy and sophistication, like we are able to offer to your business. Cashless Restaurant proudly presents Parliament – a conference hall which is bound to add energy to your business. </p>
 
                 </div>
                 <div className='text-black' data-aos="fade-up" data-aos-duration="2000" data-aos-easing="ease-in-out" data-aos-once="true">
@@ -105,8 +105,8 @@ export default function Services() {
                         </svg>
 
                     </div>
-                    <h1 className='font-serif font-black text-2xl mt-4 mb-3'>Weading Party</h1>
-                    <p className='font-nunito font-medium text-lg text-gray-500'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore vel tenetur dolores enim nemo adipisci magni labore soluta repellat laboriosam!</p>
+                    <h1 className='font-serif font-black text-2xl mt-4 mb-3'>Wedding Party</h1>
+                    <p className='font-nunito font-medium text-lg text-gray-500'>Hosting a wedding requires delicate planning and a majestic banquet hall. We have the best of both to give you a perfect premise to host your wedding. Be it a wedding, a birthday or anything festive, our grand banquet hall Amrokanon will whisk you away in a heartbeat, at nearly 4000 square feet, it is large enough to comfortably accommodate 400 people in one lot for dining experience. </p>
 
                 </div>
             </div>
