@@ -27,8 +27,14 @@ import IndexDash from './components/Dashboard/IndexDash';
 import DeliveredItems from './components/Dashboard/DeliveredItems';
 import Review from './components/Dashboard/Review';
 import Reservation from './components/Dashboard/Reservations';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './firebase.init';
+import useChef from './components/Hooks/useChef';
+import Payment from './components/Dashboard/Payment';
 
 function App() {
+  const [user] = useAuthState(auth);
+  const [chef] = useChef(user);
   return (
     <>
     <Navbar></Navbar>
@@ -44,8 +50,7 @@ function App() {
       <Route path='/singleitem/:id' element={<RequireAuth><SingleItem/></RequireAuth>}></Route>
 
       <Route path='/dashboard' element={<RequireAuth><Dashboard/></RequireAuth>}>
-        <Route path='indexdash' element={<RequireAdmin><IndexDash/></RequireAdmin>}></Route>
-        <Route index element={<MyOrders></MyOrders>}></Route>
+        {chef ? <Route index element={<RequireAdmin><IndexDash/></RequireAdmin>}></Route>: <Route index element={<MyOrders></MyOrders>}></Route>}
         <Route path='notifications' element={<Notifications/>}></Route>
         <Route path='review' element={<Review/>}></Route>
         <Route path='user' element={<RequireAdmin><User/></RequireAdmin>}></Route>
@@ -54,6 +59,7 @@ function App() {
         <Route path='allorders' element={<RequireAdmin><AllOrders/></RequireAdmin>}></Route>
         <Route path='delivered' element={<RequireAdmin><DeliveredItems/></RequireAdmin>}></Route>
         <Route path='reservations' element={<RequireAdmin><Reservation/></RequireAdmin>}></Route>
+        <Route path='payment/:id' element={<Payment/>}></Route>
       </Route>
       <Route path="*" element={<NotFound></NotFound>}></Route>
     </Routes>

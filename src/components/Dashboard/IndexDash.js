@@ -8,7 +8,7 @@ export default function IndexDash() {
     const {isLoading, data: users} = useQuery("user", () => fetch("http://localhost:4000/user").then((res) => res.json()));
     const {isLoading2, data: orders} = useQuery("allorders", () => fetch("http://localhost:4000/allorders").then((res) => res.json()));
 
-    const recentOrders = orders?.filter(order => order.date === new Date().toDateString())
+    const recentOrders = orders ?. filter(order => order.date === new Date().toDateString())
 
     const revenue = orders ?. reduce(function (pre, cur) {
         return pre + parseInt(cur.pPrice)
@@ -17,9 +17,8 @@ export default function IndexDash() {
     if (isLoading || isLoading2) {
         return <Loading></Loading>;
     }
-    
-    
-   
+
+
     return (
         <div>
             <div className="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
@@ -79,7 +78,10 @@ export default function IndexDash() {
                     <div>
                         <h1>Revenue</h1>
                         <div className='mt-5 flex items-center'>
-                            <span className='mr-2'>TK.</span>
+                            <span className='mr-2'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+  <path fillRule="evenodd" d="M12 21.75c5.385 0 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25 2.25 6.615 2.25 12s4.365 9.75 9.75 9.75zM10.5 7.963a1.5 1.5 0 00-2.17-1.341l-.415.207a.75.75 0 00.67 1.342L9 7.963V9.75h-.75a.75.75 0 100 1.5H9v4.688c0 .563.26 1.198.867 1.525A4.501 4.501 0 0016.41 14.4c.199-.977-.636-1.649-1.415-1.649h-.745a.75.75 0 100 1.5h.656a3.002 3.002 0 01-4.327 1.893.113.113 0 01-.045-.051.336.336 0 01-.034-.154V11.25h5.25a.75.75 0 000-1.5H10.5V7.963z" clipRule="evenodd" />
+</svg>
+</span>
                             <span>{revenue}</span>
                         </div>
                     </div>
@@ -122,106 +124,117 @@ export default function IndexDash() {
             </div>
 
             <div className=''>
-            <div className="flex justify-between items-center p-4 rounded-t border-b dark:border-gray-600">
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                Recent Orders
-            </h3>
-            
-        </div>
+                <div className="flex justify-between items-center p-4 rounded-t border-b dark:border-gray-600">
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                        Recent Orders
+                    </h3>
 
-        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                <tr>
-                    <th scope="col" className="py-3 px-4">
-                        <span className="">Sl.No</span>
-                    </th>
-                    <th scope="col" className="py-3 px-6">
-                        <span className="">Image</span>
-                    </th>
-                    <th scope="col" className="py-3 px-6">
-                        Product
-                    </th>
-                    <th scope="col" className="py-3 px-6">
-                        Qty
-                    </th>
-                    <th scope="col" className="py-3 px-6">
-                        Price
-                    </th>
-                    <th scope="col" className="py-3 px-6">
-                        Table
-                    </th>
-                    <th scope="col" className="py-3 px-6">
-                        Payment
-                    </th>
-                    <th scope="col" className="py-3 px-6">
-                        Set time
-                    </th>
-                    <th scope="col" className="py-3 px-6">
-                        Complete
-                    </th>
-                    
-                </tr>
-            </thead>
-            {recentOrders?.slice(0,5).map((order,index) => (
-                          <tbody key={order._id}>
+                </div>
+
+                <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" className="py-3 px-4">
+                                <span className="">Sl.No</span>
+                            </th>
+                            <th scope="col" className="py-3 px-6">
+                                <span className="">Image</span>
+                            </th>
+                            <th scope="col" className="py-3 px-6">
+                                Product
+                            </th>
+                            <th scope="col" className="py-3 px-6">
+                                Qty
+                            </th>
+                            <th scope="col" className="py-3 px-6">
+                                Price
+                            </th>
+                            <th scope="col" className="py-3 px-6">
+                                Table
+                            </th>
+                            <th scope="col" className="py-3 px-6">
+                                Payment
+                            </th>
+                            <th scope="col" className="py-3 px-6">
+                                Set time
+                            </th>
+                            <th scope="col" className="py-3 px-6">
+                                Complete
+                            </th>
+
+                        </tr>
+                    </thead>
+                    {
+                    recentOrders ?. slice(0, 5).map((order, index) => (
+                        <tbody key={
+                            order._id
+                        }>
                             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <td className="py-4 px-4 font-semibold text-gray-900 dark:text-white">
-                                  {index+1}
+                                <td className="py-4 px-4 font-semibold text-gray-900 dark:text-white">
+                                    {
+                                    index + 1
+                                } </td>
+                                <td className="p-4 w-24">
+                                    <img className="w-14 h-14 rounded-full"
+                                        src={
+                                            order.pImg
+                                        }
+                                        alt={
+                                            order.pName
+                                        }/>
                                 </td>
-                              <td className="p-4 w-24">
-                                <img
-                                  className="w-14 h-14 rounded-full"
-                                  src={order.pImg}
-                                  alt={order.pName}
-                                />
-                              </td>
-                              <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
-                                {order.pName}
-                              </td>
-                              <td className="py-4 px-6">
-                                <div className="flex items-center space-x-3 font-semibold text-gray-900 dark:text-white">
-                                  {order.pQuantity}
-                                </div>
-                              </td>
-                              <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
-                                {order.pPrice}
-                              </td>
-                              <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
-                                {order.pTable}
-                              </td>
-                              <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
-                                <button className="btn btn-xs px-4 dark:text-white btn-info">
-                                  Pay
-                                </button>
-                              </td>
-                              <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
-                                {order.deliveryTime ? order.deliveryTime + 'min': <span className='text-orange-500'>pending..</span>}
-                              </td>
-                              <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
-                                {
-                                  order?.status ? <span className="font-semibold text-xs flex items-center">
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-5 w-5"
-                                    viewBox="0 0 20 20"
-                                    fill="green"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                      clipRule="evenodd"
-                                    />
-                                  </svg>
-                                  Delivered
-                                </span>:''
-                                }
-                              </td>
-                
-                              
+                                <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
+                                    {
+                                    order.pName
+                                } </td>
+                                <td className="py-4 px-6">
+                                    <div className="flex items-center space-x-3 font-semibold text-gray-900 dark:text-white">
+                                        {
+                                        order.pQuantity
+                                    } </div>
+                                </td>
+                                <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
+                                    {
+                                    order.pPrice
+                                } </td>
+                                <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
+                                    {
+                                    order.pTable
+                                } </td>
+                                <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
+                                    {
+                                    order.paymentStatus === 'paid' ? <span className="font-semibold text-green-600 text-xs flex items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="green">
+                                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                                        </svg>
+                                        Paid
+                                    </span> : <span className="font-semibold text-red-600 text-xs flex items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="red" className="w-5 h-5">
+                                            <path fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z" clipRule="evenodd"/>
+                                        </svg>
+
+                                        Unpaid
+                                    </span>
+                                } </td>
+                                <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
+                                    {
+                                    order.deliveryTime ? order.deliveryTime + 'min' : <span className='text-orange-500'>pending..</span>
+                                } </td>
+                                <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
+                                    {
+                                    order ?. status ? <span className="font-semibold text-xs flex items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="green">
+                                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                                        </svg>
+                                        Delivered
+                                    </span> : ''
+                                } </td>
+
+
                             </tr>
-                          </tbody>
-                        ))}
-                      </table>
+                        </tbody>
+                    ))
+                } </table>
             </div>
 
         </div>

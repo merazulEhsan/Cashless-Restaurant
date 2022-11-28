@@ -156,9 +156,20 @@ export const AllOrders = () => {
                                 {order.pTable}
                               </td>
                               <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
-                                <button className="btn btn-xs px-4 dark:text-white btn-info">
-                                  Pay
-                                </button>
+                              {
+                                    order.paymentStatus === 'paid' ? <span className="font-semibold text-green-600 text-xs flex items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="green">
+                                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                                        </svg>
+                                        Paid
+                                    </span> : <span className="font-semibold text-red-600 text-xs flex items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="red" className="w-5 h-5">
+                                            <path fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z" clipRule="evenodd"/>
+                                        </svg>
+
+                                        Unpaid
+                                    </span>
+                                }
                               </td>
                               <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
                                 {order.deliveryTime ? (
