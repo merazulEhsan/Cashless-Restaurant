@@ -68,7 +68,7 @@ const CheckoutForm = ({ order }) => {
       },
     });
 
-    console.log(payload)
+    console.log(payload);
 
     if (payload.error) {
       setError(`Payment failed ${payload.error.message}`);
@@ -154,80 +154,80 @@ const CheckoutForm = ({ order }) => {
   //     }
   // };
   return (
-   <section className="flex justify-center">
-     <div className="card shadow-md w-auto m-1 sm:w-full sm:m-5 md:w-10/12 lg:w-1/2  p-4 lg:p-10 lg:m-10">
-      <h1 className="p-4 text-center text-xl">Pay With Card</h1>
-      {!succeeded ? (
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="cardholder">Cardholder Name</label>
-            <br />
-            <input
-              id="cardholder"
-              type="text"
-              value={userName}
-              // onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-2 text-sm rounded-md shadow-sm border border-gray-200 mb-5"
-            />
-          </div>
-          <div>
-            <label htmlFor="cardinfo">Card Information</label>
-            <CardElement
-              id="cardinfo"
-              className="rounded-md border p-2 shadow-sm"
-              options={cardStyle}
-              onChange={handleChange}
-            />
-          </div>
-          <button
-            className="btn bg-blue-600 hover:bg-blue-700 text-white border-none btn-sm w-full mt-4  disabled:bg-blue-700"
-            disabled={processing || disabled || succeeded}
-            type="submit"
-          >
-            <span id="button-text">
-              {processing ? (
-                <div className="spinner" id="spinner"></div>
-              ) : (
-                "Pay now"
-              )}
-            </span>
-          </button>
-          {/* Show any error that happens when processing the payment */}
-          {error && (
-            <div className="card-error" role="alert">
-              {error}
-            </div>
-          )}
-          {/* Show a success message upon completion */}
-        </form>
-      ) : (
-        <p
-          className={
-            succeeded ? "result-message m-auto" : "result-message hidden"
-          }
-        >
-          <div className="flex items-center flex-col">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1}
-              stroke="green"
-              className="w-20 h-20 ml-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+    <section className="flex justify-center">
+      <div className="card shadow-md w-auto m-1 sm:w-full sm:m-5 md:w-10/12 lg:w-1/2  p-4 lg:p-10 lg:m-10">
+        <h1 className="p-4 text-center text-xl">Pay With Card</h1>
+        {!succeeded ? (
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="cardholder">Cardholder Name</label>
+              <br />
+              <input
+                id="cardholder"
+                type="text"
+                value={userName}
+                // onChange={(e) => setEmail(e.target.value)}
+                className="w-full p-2 text-sm rounded-md shadow-sm border border-gray-200 mb-5"
               />
-            </svg>
-            <p>Payment succeeded!!</p>
-            <p>Transaction Id: {transaction}</p>
-          </div>
-        </p>
-      )}
-    </div>
-   </section>
+            </div>
+            <div>
+              <label htmlFor="cardinfo">Card Information</label>
+              <CardElement
+                id="cardinfo"
+                className="rounded-md border p-2 shadow-sm"
+                options={cardStyle}
+                onChange={handleChange}
+              />
+            </div>
+            <button
+              className="btn bg-blue-600 hover:bg-blue-700 text-white border-none btn-sm w-full mt-4  disabled:bg-blue-700"
+              disabled={processing || disabled || succeeded}
+              type="submit"
+            >
+              <span id="button-text">
+                {processing ? (
+                  <div className="spinner" id="spinner"></div>
+                ) : (
+                  "Pay now"
+                )}
+              </span>
+            </button>
+            {/* Show any error that happens when processing the payment */}
+            {error && (
+              <div className="card-error" role="alert">
+                {error}
+              </div>
+            )}
+            {/* Show a success message upon completion */}
+          </form>
+        ) : (
+          <p
+            className={
+              succeeded ? "result-message m-auto" : "result-message hidden"
+            }
+          >
+            <div className="flex items-center flex-col">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1}
+                stroke="green"
+                className="w-20 h-20 ml-5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <p>Payment succeeded!!</p>
+              <p>Transaction Id: {transaction}</p>
+            </div>
+          </p>
+        )}
+      </div>
+    </section>
   );
 };
 

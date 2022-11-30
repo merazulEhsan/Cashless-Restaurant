@@ -16,7 +16,7 @@ export const ManageItems = () => {
     fetch(`http://localhost:4000/items?page=${page}&size=${size}`)
       .then((res) => res.json())
       .then((data) => setItems(data));
-  }, [page, size,items]);
+  }, [page, size, items]);
 
   useEffect(() => {
     fetch("http://localhost:4000/itemsCount")
@@ -57,7 +57,6 @@ export const ManageItems = () => {
           <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
             Manage Items
           </h3>
-          
         </div>
         <div className="px-2 pb-4 bg-white dark:bg-gray-900 flex items-center justify-between">
           <label htmlFor="table-search" className="sr-only">
@@ -88,18 +87,17 @@ export const ManageItems = () => {
             />
           </div>
           <div>
-                <span className="font-semibold">Show page</span>
-                <select onClick={
-                        (e) => setSize(e.target.value)
-                    }
-                    className="select select-success  select-sm w-1/8 text-center pt-0 bg-white ml-2">
-                    <option value='5'>5</option>
-                    <option value='10'>10</option>
-                    <option value='15'>15</option>
-                    <option value='20'>20</option>
-
-                </select>
-            </div>
+            <span className="font-semibold">Show page</span>
+            <select
+              onClick={(e) => setSize(e.target.value)}
+              className="select select-success  select-sm w-1/8 text-center pt-0 bg-white ml-2"
+            >
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+            </select>
+          </div>
         </div>
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -132,7 +130,8 @@ export const ManageItems = () => {
             <tbody key={item._id}>
               <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td className="py-4 px-4 font-semibold text-gray-900 dark:text-white">
-                  {(page===0 &&(index + 1)) || (page>0 && (index + 1)+size*page)}
+                  {(page === 0 && index + 1) ||
+                    (page > 0 && index + 1 + size * page)}
                 </td>
                 <td className="p-4 w-24">
                   <img
@@ -248,7 +247,7 @@ export const ManageItems = () => {
             <ul className="inline-flex -space-x-px">
               <li>
                 <button
-                  onClick={() => setPage(page>0 && page - 1)}
+                  onClick={() => setPage(page > 0 && page - 1)}
                   disabled={page === 0}
                   className="py-3 px-4 ml-0 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:disabled:bg-gray-700 disabled:bg-gray-200"
                 >
@@ -294,11 +293,7 @@ export const ManageItems = () => {
             >
               ✕
             </label>
-            <EditForm
-              editUser={editUser}
-              
-              setEditUser={setEditUser}
-            ></EditForm>
+            <EditForm editUser={editUser} setEditUser={setEditUser}></EditForm>
           </label>
         </div>
       </div>
