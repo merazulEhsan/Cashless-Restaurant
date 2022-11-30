@@ -35,12 +35,14 @@ export default function EditForm({editUser,  setEditUser}) {
         }).then((res) => res.json()).then((data) => {
             toast("Item Edited");
             setEditUser('')
+            
         });
     }
 
 
     return (
         <>
+        
             <label className="modal-box cursor-pointer bg-white">
                 <label htmlFor="my-modal" className="btn btn-sm bg-red-600 hover:bg-red-800 border-none text-white btn-circle absolute right-2 top-2">
                     ✕
@@ -111,9 +113,9 @@ export default function EditForm({editUser,  setEditUser}) {
 
 
                         </div>
+                        <button type="submit" className="modal-middle text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button>
                         {/* <!-- Modal footer --> */}
 
-                        <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button>
                     </div>
 
                 </form>

@@ -1,7 +1,6 @@
 import React from 'react'
 import {useQuery} from 'react-query';
 import Loading from '../Loading/Loading';
-import User from '../../components/Dashboard/User'
 
 export default function IndexDash() {
 
@@ -9,7 +8,6 @@ export default function IndexDash() {
     const {isLoading2, data: orders} = useQuery("allorders", () => fetch("http://localhost:4000/allorders").then((res) => res.json()));
 
     const recentOrders = orders ?. filter(order => order.date === new Date().toDateString())
-
     const revenue = orders ?. reduce(function (pre, cur) {
         return pre + parseInt(cur.pPrice)
     }, 0)
@@ -78,10 +76,11 @@ export default function IndexDash() {
                     <div>
                         <h1>Revenue</h1>
                         <div className='mt-5 flex items-center'>
-                            <span className='mr-2'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-  <path fillRule="evenodd" d="M12 21.75c5.385 0 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25 2.25 6.615 2.25 12s4.365 9.75 9.75 9.75zM10.5 7.963a1.5 1.5 0 00-2.17-1.341l-.415.207a.75.75 0 00.67 1.342L9 7.963V9.75h-.75a.75.75 0 100 1.5H9v4.688c0 .563.26 1.198.867 1.525A4.501 4.501 0 0016.41 14.4c.199-.977-.636-1.649-1.415-1.649h-.745a.75.75 0 100 1.5h.656a3.002 3.002 0 01-4.327 1.893.113.113 0 01-.045-.051.336.336 0 01-.034-.154V11.25h5.25a.75.75 0 000-1.5H10.5V7.963z" clipRule="evenodd" />
-</svg>
-</span>
+                            <span className='mr-2'>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                                    <path fillRule="evenodd" d="M12 21.75c5.385 0 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25 2.25 6.615 2.25 12s4.365 9.75 9.75 9.75zM10.5 7.963a1.5 1.5 0 00-2.17-1.341l-.415.207a.75.75 0 00.67 1.342L9 7.963V9.75h-.75a.75.75 0 100 1.5H9v4.688c0 .563.26 1.198.867 1.525A4.501 4.501 0 0016.41 14.4c.199-.977-.636-1.649-1.415-1.649h-.745a.75.75 0 100 1.5h.656a3.002 3.002 0 01-4.327 1.893.113.113 0 01-.045-.051.336.336 0 01-.034-.154V11.25h5.25a.75.75 0 000-1.5H10.5V7.963z" clipRule="evenodd"/>
+                                </svg>
+                            </span>
                             <span>{revenue}</span>
                         </div>
                     </div>
@@ -106,7 +105,7 @@ export default function IndexDash() {
                                 <path d="M19.5 19.5a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0z"/>
                             </svg>
                             <span>{
-                                orders ?. filter(order => order.status === 'delivered').length
+                                orders ?. filter(order => order.status === 'delivered')?.length
                             }</span>
                         </div>
                     </div>
@@ -227,7 +226,7 @@ export default function IndexDash() {
                                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                                         </svg>
                                         Delivered
-                                    </span> : ''
+                                    </span> : 'Processing'
                                 } </td>
 
 
@@ -236,7 +235,9 @@ export default function IndexDash() {
                     ))
                 } </table>
             </div>
-
+            <div> {
+                recentOrders?.length === 0 && <div className='text-2xl font-marck font-bold text-center p-10 text-gray-400'>No Order Today</div>
+            } </div>
         </div>
     )
 }

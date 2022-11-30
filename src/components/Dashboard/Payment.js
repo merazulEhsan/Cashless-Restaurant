@@ -1,7 +1,6 @@
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React from 'react';
 import {useQuery} from 'react-query';
 import {useParams} from 'react-router-dom';
 import Loading from '../Loading/Loading';
@@ -21,9 +20,11 @@ const Payment = () => {
         return <Loading></Loading>
     }
 
+    
+
     return (
         <div>
-            <Elements stripe={stripePromise}>
+            <Elements stripe={stripePromise} >
                 <CheckoutForm order={order[0]}/>
             </Elements>
             
