@@ -30,7 +30,9 @@ export const AllOrders = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
-
+  if (pageCount === page) {
+    return setPage(page - 1);
+  }
   const filterStatus = orders
     ?.filter((order) => order.status !== "delivered")
     .slice(page * size, page * size + size);

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import Loading from "../Loading/Loading";
 
 import EditForm from "./EditForm";
 
 export const ManageItems = () => {
   const [items, setItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [editUser, setEditUser] = useState([]);
   const [itemDelete, setItemDelete] = useState(null);
@@ -13,28 +15,28 @@ export const ManageItems = () => {
   const [size, setSize] = useState(5);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/items?page=${page}&size=${size}`)
-      .then((res) => res.json())
-      .then((data) => setItems(data));
-  }, [page, size, items]);
-
-  useEffect(() => {
-    fetch("http://localhost:4000/itemsCount")
+    fetch("http://localhost:4000/items")
       .then((res) => res.json())
       .then((data) => {
-        const count = data.count;
+        setItems(data);
+        setIsLoading(false);
+        const count = data?.length;
         const page = Math.ceil(count / size);
         setPageCount(page);
       });
-  }, [size]);
+  }, [size, items]);
 
-  // if (isLoading) {
-  // return <Loading></Loading>;
-  // }
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
 
-  const userFilter = items.filter((item) =>
-    item?.name?.toLowerCase().includes(search)
-  );
+  if (pageCount === page) {
+    setPage(page - 1);
+  }
+
+  const userFilter = items
+    ?.filter((item) => item.name.toLowerCase().includes(search))
+    .slice(page * size, page * size + size);
 
   const handleItemDelete = () => {
     const url = `http://localhost:4000/items/${itemDelete}`;

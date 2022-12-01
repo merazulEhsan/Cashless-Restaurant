@@ -8,6 +8,7 @@ const DeliveredItems = () => {
   const [pageCount, setPageCount] = useState(0);
   const [page, setPage] = useState(0);
   const [size, setSize] = useState(5);
+  console.log(pageCount, page, size);
 
   useEffect(() => {
     fetch(`http://localhost:4000/allorders`)
@@ -21,10 +22,13 @@ const DeliveredItems = () => {
         const page = Math.ceil(count / size);
         setPageCount(page);
       });
-  }, [orders, size]);
+  }, [size, page]);
 
   if (isLoading) {
     return <Loading></Loading>;
+  }
+  if (pageCount === page) {
+    return setPage(page - 1);
   }
 
   const filterStatus = orders
@@ -40,7 +44,7 @@ const DeliveredItems = () => {
         <div>
           <span className="font-semibold">Show page</span>
           <select
-            onClick={(e) => setSize(e.target.value)}
+            onClick={(e) => setSize(parseInt(e.target.value))}
             className="select select-success  select-sm w-1/8 text-center pt-0 bg-white ml-2"
           >
             <option value="5">5</option>
