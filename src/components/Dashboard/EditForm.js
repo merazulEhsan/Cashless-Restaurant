@@ -15,7 +15,7 @@ export default function EditForm({ editUser, setEditUser }) {
       description: e.target.description.value,
     };
 
-    const url = `http://localhost:4000/items/${_id}`;
+    const url = `https://cashless-restaurant.herokuapp.com/items/${_id}`;
     fetch(url, {
       method: "PUT",
       headers: {

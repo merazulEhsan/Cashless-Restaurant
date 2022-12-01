@@ -1,4 +1,4 @@
-import React, { } from "react";
+import React from "react";
 import avatar from "../../images/avatar.png";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -8,7 +8,6 @@ import Loading from "../Loading/Loading";
 export default function User() {
   const [search, setSearch] = useState("");
   const [userDelete, setUserDelete] = useState(null);
-  
 
   const {
     isLoading,
@@ -16,7 +15,9 @@ export default function User() {
     data: users,
     refetch,
   } = useQuery("user", () =>
-    fetch("http://localhost:4000/user").then((res) => res.json())
+    fetch("https://cashless-restaurant.herokuapp.com/user").then((res) =>
+      res.json()
+    )
   );
 
   if (isLoading) {
@@ -24,7 +25,7 @@ export default function User() {
   }
 
   const handleUserDelete = () => {
-    const url = `http://localhost:4000/user/${userDelete}`;
+    const url = `https://cashless-restaurant.herokuapp.com/user/${userDelete}`;
     fetch(url, {
       method: "DELETE",
       headers: {
@@ -40,7 +41,7 @@ export default function User() {
   };
 
   const makeChef = (email) => {
-    fetch(`http://localhost:4000/user/chef/${email}`, {
+    fetch(`https://cashless-restaurant.herokuapp.com/user/chef/${email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -142,7 +143,7 @@ export default function User() {
                 <td className="py-4 px-6">
                   {user.roll !== "chef" ? (
                     <button
-                      onClick={()=>makeChef(user.email)}
+                      onClick={() => makeChef(user.email)}
                       className="btn btn-xs btn-success text-white"
                     >
                       Make Chef
@@ -214,7 +215,7 @@ export default function User() {
                           Are you sure you want to delete this user?
                         </h3>
                         <label
-                        htmlFor="my-modal-3"
+                          htmlFor="my-modal-3"
                           onClick={() => handleUserDelete()}
                           type="submit"
                           className="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"

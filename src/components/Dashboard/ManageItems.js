@@ -15,7 +15,7 @@ export const ManageItems = () => {
   const [size, setSize] = useState(5);
 
   useEffect(() => {
-    fetch("http://localhost:4000/items")
+    fetch("https://cashless-restaurant.herokuapp.com/items")
       .then((res) => res.json())
       .then((data) => {
         setItems(data);
@@ -24,14 +24,14 @@ export const ManageItems = () => {
         const page = Math.ceil(count / size);
         setPageCount(page);
       });
-  }, [size, items]);
+  }, [size, items, page, pageCount]);
 
   if (isLoading) {
     return <Loading></Loading>;
   }
 
   if (pageCount === page) {
-    setPage(page - 1);
+    setPage(0);
   }
 
   const userFilter = items
@@ -39,7 +39,7 @@ export const ManageItems = () => {
     .slice(page * size, page * size + size);
 
   const handleItemDelete = () => {
-    const url = `http://localhost:4000/items/${itemDelete}`;
+    const url = `https://cashless-restaurant.herokuapp.com/items/${itemDelete}`;
     fetch(url, {
       method: "DELETE",
       headers: {

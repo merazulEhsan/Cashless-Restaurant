@@ -11,7 +11,7 @@ const DeliveredItems = () => {
   console.log(pageCount, page, size);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/allorders`)
+    fetch(`https://cashless-restaurant.herokuapp.com/allorders`)
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
@@ -28,7 +28,7 @@ const DeliveredItems = () => {
     return <Loading></Loading>;
   }
   if (pageCount === page) {
-    return setPage(page - 1);
+    return setPage(0);
   }
 
   const filterStatus = orders

@@ -11,13 +11,15 @@ export default function MyOrders() {
   const [order, setOrder] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/orders?email=${user?.email}`)
+    fetch(
+      `https://cashless-restaurant.herokuapp.com/orders?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setOrder(data));
   }, [user?.email, order]);
 
   const handleDelete = () => {
-    const url = `http://localhost:4000/orders/${orderDelete._id}`;
+    const url = `https://cashless-restaurant.herokuapp.com/orders/${orderDelete._id}`;
     fetch(url, {
       method: "DELETE",
       headers: {

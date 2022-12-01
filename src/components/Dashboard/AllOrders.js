@@ -14,7 +14,7 @@ export const AllOrders = () => {
   const [size, setSize] = useState(5);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/allorders`)
+    fetch(`https://cashless-restaurant.herokuapp.com/allorders`)
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
@@ -31,14 +31,14 @@ export const AllOrders = () => {
     return <Loading></Loading>;
   }
   if (pageCount === page) {
-    return setPage(page - 1);
+    return setPage(0);
   }
   const filterStatus = orders
     ?.filter((order) => order.status !== "delivered")
     .slice(page * size, page * size + size);
 
   const handleDelete = () => {
-    const url = `http://localhost:4000/orders/${orderDelete}`;
+    const url = `https://cashless-restaurant.herokuapp.com/orders/${orderDelete}`;
     fetch(url, {
       method: "DELETE",
       headers: {
@@ -54,7 +54,7 @@ export const AllOrders = () => {
   };
 
   const handleSetTime = () => {
-    const url = `http://localhost:4000/orders/${timeId}`;
+    const url = `https://cashless-restaurant.herokuapp.com/orders/${timeId}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -70,7 +70,7 @@ export const AllOrders = () => {
   };
 
   const handleDeliverd = (id) => {
-    const url = `http://localhost:4000/orders/${id}`;
+    const url = `https://cashless-restaurant.herokuapp.com/orders/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {

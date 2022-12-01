@@ -13,7 +13,7 @@ export default function AddItem() {
       description: e.target.description.value,
     };
 
-    fetch(`http://localhost:4000/items`, {
+    fetch(`https://cashless-restaurant.herokuapp.com/items`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -17,11 +17,11 @@ export default function Menus() {
     setFoods(items);
   }, [items]);
   // useEffect(() => {
-  //     fetch(`http://localhost:4000/items?page=${page}&size=${size}`).then(res => res.json()).then(data => setItems(data))
+  //     fetch(`https://cashless-restaurant.herokuapp.com/items?page=${page}&size=${size}`).then(res => res.json()).then(data => setItems(data))
   // }, [page, size])
 
   // useEffect(() => {
-  //     fetch("http://localhost:4000/itemsCount").then(res => res.json()).then(data => {
+  //     fetch("https://cashless-restaurant.herokuapp.com/itemsCount").then(res => res.json()).then(data => {
   //         const count = data.count;
   //         const page = Math.ceil(count / size)
   //         setPageCount(page);
@@ -29,7 +29,7 @@ export default function Menus() {
   // }, [size])
 
   useEffect(() => {
-    fetch("http://localhost:4000/items")
+    fetch("https://cashless-restaurant.herokuapp.com/items")
       .then((res) => res.json())
       .then((data) => {
         setItems(data);
@@ -45,7 +45,7 @@ export default function Menus() {
   }
 
   if (pageCount === page) {
-    setPage(page - 1);
+    setPage(0);
   }
 
   // Filter Type burgers/pizza/etc

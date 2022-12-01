@@ -14,7 +14,7 @@ const CheckoutForm = ({ order }) => {
   const [clientSecret, setClientSecret] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:4000/create-payment-intent", {
+    fetch("https://cashless-restaurant.herokuapp.com/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -85,7 +85,7 @@ const CheckoutForm = ({ order }) => {
         paymentStatus: "paid",
       };
 
-      fetch(`http://localhost:4000/orders/${_id}`, {
+      fetch(`https://cashless-restaurant.herokuapp.com/orders/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -144,7 +144,7 @@ const CheckoutForm = ({ order }) => {
   //           paymentStatus: 'paid',
   //       }
 
-  //       fetch(`http://localhost:4000/orders/${_id}`,{
+  //       fetch(`https://cashless-restaurant.herokuapp.com/orders/${_id}`,{
   //           method: "PATCH",
   //           headers:{
   //               'content-type': "application/json"

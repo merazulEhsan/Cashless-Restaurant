@@ -4,10 +4,14 @@ import Loading from "../Loading/Loading";
 
 export default function IndexDash() {
   const { isLoading, data: users } = useQuery("user", () =>
-    fetch("http://localhost:4000/user").then((res) => res.json())
+    fetch("https://cashless-restaurant.herokuapp.com/user").then((res) =>
+      res.json()
+    )
   );
   const { isLoading2, data: orders } = useQuery("allorders", () =>
-    fetch("http://localhost:4000/allorders").then((res) => res.json())
+    fetch("https://cashless-restaurant.herokuapp.com/allorders").then((res) =>
+      res.json()
+    )
   );
 
   const recentOrders = orders?.filter(

@@ -12,17 +12,16 @@ import auth from "../firebase.init";
 import { toast } from "react-toastify";
 
 export default function SingleItem() {
-
-  const [user] = useAuthState(auth)
+  const [user] = useAuthState(auth);
   const { id } = useParams();
   const [count, setCount] = useState(1);
   const [table, setTable] = useState(2);
   const [items] = useItems();
   const [singleitem, setSingleitem] = useState([]);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:4000/items/${id}`)
+    fetch(`https://cashless-restaurant.herokuapp.com/items/${id}`)
       .then((res) => res.json())
       .then((data) => setSingleitem(data));
   }, [id, items]);
@@ -32,37 +31,35 @@ export default function SingleItem() {
     (item) => item?.category === singleitem.category
   );
 
-  const handlePlaceOrder = (e) =>{
+  const handlePlaceOrder = (e) => {
     e.preventDefault();
 
-    const order ={
-        pName: singleitem.name,
-        pImg: singleitem.image,
-        pPrice: parseInt(singleitem.price*count),
-        pQuantity: count,
-        pTable: parseInt(table),
-        userName: user.displayName,
-        email: user.email,
-        date: new Date().toDateString(),
-    
-    }
+    const order = {
+      pName: singleitem.name,
+      pImg: singleitem.image,
+      pPrice: parseInt(singleitem.price * count),
+      pQuantity: count,
+      pTable: parseInt(table),
+      userName: user.displayName,
+      email: user.email,
+      date: new Date().toDateString(),
+    };
 
-    fetch(`http://localhost:4000/orders`,{
-        method:'POST',
-        headers: {
-            "content-type": "application/json",
-        },
-        body: JSON.stringify(order)
-    }).then(res=>res.json())
-    .then(data => {
-        if (data.acknowledged === true) {
-            toast.success("Order Placed Successfilly");
-            navigate('/dashboard')
-          }
+    fetch(`https://cashless-restaurant.herokuapp.com/orders`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(order),
     })
-    
-}
-
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged === true) {
+          toast.success("Order Placed Successfilly");
+          navigate("/dashboard");
+        }
+      });
+  };
 
   return (
     <>
@@ -146,7 +143,7 @@ export default function SingleItem() {
                 Quantity:
               </span>
               <button
-                onClick={() => setCount(count =>count - 1)}
+                onClick={() => setCount((count) => count - 1)}
                 className="inline-flex items-center p-1 text-sm font-medium text-gray-500 bg-white rounded-full border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
                 type="button"
               >
@@ -177,7 +174,7 @@ export default function SingleItem() {
                 />
               </div>
               <button
-                onClick={() => setCount(count=>count + 1)}
+                onClick={() => setCount((count) => count + 1)}
                 className="inline-flex items-center p-1 text-sm font-medium text-gray-500 bg-white rounded-full border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
                 type="button"
               >
@@ -253,7 +250,6 @@ export default function SingleItem() {
             {category?.map((item) => {
               return (
                 <SwiperSlide key={item._id}>
-                 
                   <RelatedItems key={item._id} item={item}></RelatedItems>
                 </SwiperSlide>
               );
