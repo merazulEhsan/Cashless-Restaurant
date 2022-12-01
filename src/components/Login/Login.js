@@ -24,7 +24,7 @@ export default function Login() {
     return <Loading></Loading>;
   }
   if (error || gerror) {
-    toast.warning(error?.message);
+    toast.warning(error?.message || gerror?.message);
   }
 
   const handleLogin = async (event) => {
