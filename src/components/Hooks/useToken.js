@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import mainPath from "../../Utility";
 
 const useToken = (user) => {
   const [token, setToken] = useState("");
@@ -11,7 +12,7 @@ const useToken = (user) => {
   const currentUser = { email: email, name: name, photoURL: photoURL };
   useEffect(() => {
     if (email) {
-      fetch(`https://cashless-restaurant.herokuapp.com/user/${email}`, {
+      fetch(mainPath + `/user/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

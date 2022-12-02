@@ -4,6 +4,7 @@ import auth from "../../firebase.init";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import mainPath from "../../Utility";
 
 export default function MyOrders() {
   const [user] = useAuthState(auth);
@@ -11,15 +12,13 @@ export default function MyOrders() {
   const [order, setOrder] = useState([]);
 
   useEffect(() => {
-    fetch(
-      `https://cashless-restaurant.herokuapp.com/orders?email=${user?.email}`
-    )
+    fetch(mainPath + `/orders?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setOrder(data));
   }, [user?.email, order]);
 
   const handleDelete = () => {
-    const url = `https://cashless-restaurant.herokuapp.com/orders/${orderDelete._id}`;
+    const url = mainPath + `/orders/${orderDelete._id}`;
     fetch(url, {
       method: "DELETE",
       headers: {

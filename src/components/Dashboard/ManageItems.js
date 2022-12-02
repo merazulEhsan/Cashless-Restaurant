@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import mainPath from "../../Utility";
 import Loading from "../Loading/Loading";
 
 import EditForm from "./EditForm";
@@ -15,7 +16,7 @@ export const ManageItems = () => {
   const [size, setSize] = useState(5);
 
   useEffect(() => {
-    fetch("https://cashless-restaurant.herokuapp.com/items")
+    fetch(mainPath + "/items")
       .then((res) => res.json())
       .then((data) => {
         setItems(data);
@@ -39,7 +40,7 @@ export const ManageItems = () => {
     .slice(page * size, page * size + size);
 
   const handleItemDelete = () => {
-    const url = `https://cashless-restaurant.herokuapp.com/items/${itemDelete}`;
+    const url = mainPath + `/items/${itemDelete}`;
     fetch(url, {
       method: "DELETE",
       headers: {

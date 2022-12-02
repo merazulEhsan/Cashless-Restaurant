@@ -1,5 +1,6 @@
 import React from "react";
 import { toast } from "react-toastify";
+import mainPath from "../../Utility";
 
 export default function AddItem() {
   const handleAddProduct = (e) => {
@@ -13,7 +14,7 @@ export default function AddItem() {
       description: e.target.description.value,
     };
 
-    fetch(`https://cashless-restaurant.herokuapp.com/items`, {
+    fetch(mainPath + `/items`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

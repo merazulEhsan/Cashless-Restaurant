@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Icons from "../../Pages/Icons";
+import mainPath from "../../Utility";
 import Loading from "../Loading/Loading";
 
 export default function Menus() {
@@ -16,20 +17,9 @@ export default function Menus() {
   useEffect(() => {
     setFoods(items);
   }, [items]);
-  // useEffect(() => {
-  //     fetch(`https://cashless-restaurant.herokuapp.com/items?page=${page}&size=${size}`).then(res => res.json()).then(data => setItems(data))
-  // }, [page, size])
-
-  // useEffect(() => {
-  //     fetch("https://cashless-restaurant.herokuapp.com/itemsCount").then(res => res.json()).then(data => {
-  //         const count = data.count;
-  //         const page = Math.ceil(count / size)
-  //         setPageCount(page);
-  //     })
-  // }, [size])
 
   useEffect(() => {
-    fetch("https://cashless-restaurant.herokuapp.com/items")
+    fetch(mainPath + "/items")
       .then((res) => res.json())
       .then((data) => {
         setItems(data);

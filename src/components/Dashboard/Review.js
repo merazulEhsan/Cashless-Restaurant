@@ -2,6 +2,7 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
+import mainPath from "../../Utility";
 
 const Review = () => {
   const [user] = useAuthState(auth);
@@ -16,7 +17,7 @@ const Review = () => {
       description: e.target.description.value,
     };
 
-    fetch(`https://cashless-restaurant.herokuapp.com/review`, {
+    fetch(mainPath + `/review`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

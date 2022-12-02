@@ -2,12 +2,13 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import twentyfourToTwelve from "twentyfour-to-twelve";
+import mainPath from "../../Utility";
 
 const Reservations = () => {
   const [reservation, setReservations] = useState([]);
 
   useEffect(() => {
-    fetch("https://cashless-restaurant.herokuapp.com/reservation")
+    fetch(mainPath + "/reservation")
       .then((res) => res.json())
       .then((data) => setReservations(data));
   }, []);

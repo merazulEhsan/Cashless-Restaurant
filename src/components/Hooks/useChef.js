@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import mainPath from "../../Utility";
 
 const useChef = (user) => {
   const [chef, setChef] = useState(false);
@@ -8,7 +9,7 @@ const useChef = (user) => {
   useEffect(() => {
     const email = user?.email;
     if (email) {
-      fetch(`https://cashless-restaurant.herokuapp.com/chef/${email}`, {
+      fetch(mainPath + `/chef/${email}`, {
         method: "GET",
         headers: {
           "content-type": "application/json",

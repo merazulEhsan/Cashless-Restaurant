@@ -4,6 +4,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { useQuery } from "react-query";
 import Loading from "../Loading/Loading";
+import mainPath from "../../Utility";
 
 export default function User() {
   const [search, setSearch] = useState("");
@@ -15,9 +16,7 @@ export default function User() {
     data: users,
     refetch,
   } = useQuery("user", () =>
-    fetch("https://cashless-restaurant.herokuapp.com/user").then((res) =>
-      res.json()
-    )
+    fetch(mainPath + "/user").then((res) => res.json())
   );
 
   if (isLoading) {
@@ -25,7 +24,7 @@ export default function User() {
   }
 
   const handleUserDelete = () => {
-    const url = `https://cashless-restaurant.herokuapp.com/user/${userDelete}`;
+    const url = mainPath + `/user/${userDelete}`;
     fetch(url, {
       method: "DELETE",
       headers: {
@@ -41,7 +40,7 @@ export default function User() {
   };
 
   const makeChef = (email) => {
-    fetch(`https://cashless-restaurant.herokuapp.com/user/chef/${email}`, {
+    fetch(mainPath + `/user/chef/${email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

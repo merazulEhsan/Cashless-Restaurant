@@ -16,18 +16,13 @@ import { useQuery } from "react-query";
 import Loading from "../Loading/Loading";
 import { useEffect } from "react";
 import { useState } from "react";
+import mainPath from "../../Utility";
 
 export default function Review() {
   const [review, setReview] = useState([]);
 
-  // const {data, isLoading} = useQuery('review', ()=>{fetch(`https://cashless-restaurant.herokuapp.com/review`).then(res=>res.json())})
-
-  // if(isLoading){
-  //     return <Loading></Loading>
-  // }
-
   useEffect(() => {
-    fetch(`https://cashless-restaurant.herokuapp.com/review`).then((res) =>
+    fetch(mainPath + `/review`).then((res) =>
       res.json().then((data) => setReview(data))
     );
   }, []);

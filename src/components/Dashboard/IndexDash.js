@@ -1,17 +1,14 @@
 import React from "react";
 import { useQuery } from "react-query";
+import mainPath from "../../Utility";
 import Loading from "../Loading/Loading";
 
 export default function IndexDash() {
   const { isLoading, data: users } = useQuery("user", () =>
-    fetch("https://cashless-restaurant.herokuapp.com/user").then((res) =>
-      res.json()
-    )
+    fetch(mainPath + "/user").then((res) => res.json())
   );
   const { isLoading2, data: orders } = useQuery("allorders", () =>
-    fetch("https://cashless-restaurant.herokuapp.com/allorders").then((res) =>
-      res.json()
-    )
+    fetch(mainPath + "/allorders").then((res) => res.json())
   );
 
   const recentOrders = orders?.filter(

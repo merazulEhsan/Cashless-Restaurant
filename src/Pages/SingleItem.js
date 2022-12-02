@@ -10,6 +10,7 @@ import "swiper/css/pagination";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../firebase.init";
 import { toast } from "react-toastify";
+import mainPath from "../Utility";
 
 export default function SingleItem() {
   const [user] = useAuthState(auth);
@@ -21,7 +22,7 @@ export default function SingleItem() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`https://cashless-restaurant.herokuapp.com/items/${id}`)
+    fetch(mainPath + `/items/${id}`)
       .then((res) => res.json())
       .then((data) => setSingleitem(data));
   }, [id, items]);
@@ -45,7 +46,7 @@ export default function SingleItem() {
       date: new Date().toDateString(),
     };
 
-    fetch(`https://cashless-restaurant.herokuapp.com/orders`, {
+    fetch(mainPath + `/orders`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

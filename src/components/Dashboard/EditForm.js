@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import mainPath from "../../Utility";
 
 export default function EditForm({ editUser, setEditUser }) {
   const { name, description, price, image, category, _id } = editUser;
@@ -15,7 +16,7 @@ export default function EditForm({ editUser, setEditUser }) {
       description: e.target.description.value,
     };
 
-    const url = `https://cashless-restaurant.herokuapp.com/items/${_id}`;
+    const url = mainPath + `/items/${_id}`;
     fetch(url, {
       method: "PUT",
       headers: {

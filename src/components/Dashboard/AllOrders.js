@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import mainPath from "../../Utility";
 import Loading from "../Loading/Loading";
 
 export const AllOrders = () => {
@@ -14,7 +15,7 @@ export const AllOrders = () => {
   const [size, setSize] = useState(5);
 
   useEffect(() => {
-    fetch(`https://cashless-restaurant.herokuapp.com/allorders`)
+    fetch(mainPath + `/allorders`)
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
@@ -38,7 +39,7 @@ export const AllOrders = () => {
     .slice(page * size, page * size + size);
 
   const handleDelete = () => {
-    const url = `https://cashless-restaurant.herokuapp.com/orders/${orderDelete}`;
+    const url = mainPath + `/orders/${orderDelete}`;
     fetch(url, {
       method: "DELETE",
       headers: {
@@ -54,7 +55,7 @@ export const AllOrders = () => {
   };
 
   const handleSetTime = () => {
-    const url = `https://cashless-restaurant.herokuapp.com/orders/${timeId}`;
+    const url = mainPath + `/orders/${timeId}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -70,7 +71,7 @@ export const AllOrders = () => {
   };
 
   const handleDeliverd = (id) => {
-    const url = `https://cashless-restaurant.herokuapp.com/orders/${id}`;
+    const url = mainPath + `/orders/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {

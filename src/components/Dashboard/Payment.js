@@ -3,6 +3,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import React from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
+import mainPath from "../../Utility";
 import Loading from "../Loading/Loading";
 import CheckoutForm from "./CheckoutForm";
 
@@ -12,7 +13,7 @@ const stripePromise = loadStripe(
 
 const Payment = () => {
   const { id } = useParams();
-  const url = `https://cashless-restaurant.herokuapp.com/orders/${id}`;
+  const url = mainPath + `/orders/${id}`;
 
   const { data: order, isLoading } = useQuery(["orders", id], () =>
     fetch(url).then((res) => res.json())

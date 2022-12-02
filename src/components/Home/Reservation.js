@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import img from "../../images/YG4RVTTXWRFWLAVHKLYVP74HN4.jpg";
+import mainPath from "../../Utility";
 export default function Reservation() {
   const [select, setSelect] = useState(0);
 
@@ -16,7 +17,7 @@ export default function Reservation() {
       person: select,
     };
 
-    const url = `https://cashless-restaurant.herokuapp.com/reservation`;
+    const url = mainPath + `/reservation`;
     fetch(url, {
       method: "POST",
       headers: {

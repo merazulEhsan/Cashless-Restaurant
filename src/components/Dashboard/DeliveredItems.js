@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import mainPath from "../../Utility";
 import Loading from "../Loading/Loading";
 
 const DeliveredItems = () => {
@@ -11,7 +12,7 @@ const DeliveredItems = () => {
   console.log(pageCount, page, size);
 
   useEffect(() => {
-    fetch(`https://cashless-restaurant.herokuapp.com/allorders`)
+    fetch(mainPath + `/allorders`)
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);

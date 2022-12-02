@@ -1,5 +1,6 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
+import mainPath from "../../Utility";
 
 const CheckoutForm = ({ order }) => {
   const stripe = useStripe();
@@ -14,7 +15,7 @@ const CheckoutForm = ({ order }) => {
   const [clientSecret, setClientSecret] = useState("");
 
   useEffect(() => {
-    fetch("https://cashless-restaurant.herokuapp.com/create-payment-intent", {
+    fetch(mainPath + "/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -85,7 +86,7 @@ const CheckoutForm = ({ order }) => {
         paymentStatus: "paid",
       };
 
-      fetch(`https://cashless-restaurant.herokuapp.com/orders/${_id}`, {
+      fetch(mainPath + `/orders/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -97,62 +98,6 @@ const CheckoutForm = ({ order }) => {
     }
   };
 
-  // const handleSubmit = async (event) => {
-  // // Block native form submission.
-  // event.preventDefault();
-
-  // if (!stripe || !elements) {
-  //       return;
-  // }
-
-  // const card = elements.getElement(CardNumberElement, CardExpiryElement, CardCvcElement);
-
-  // if (card == null) {
-  //     return;
-  // }
-
-  //    const {error, paymentMethod} = await stripe.createPaymentMethod({
-  //     type: 'card',
-  //     card,
-  // });
-
-  // setError(error?.message || '')
-  // setSuccess('')
-
-  // const {paymentIntent, error: intentError} = await stripe.confirmCardPayment(
-  //       clientSecret,
-  //       {
-  //         payment_method: {
-  //           card: card,
-  //           billing_details: {
-  //             name: userName,
-  //             email: email,
-
-  //           },
-  //         },
-  //       },
-  //     );
-
-  //     if(intentError){
-  //       setError(intentError?.message)
-  //     }else{
-  //       setError('')
-  //       setSuccess('Congrats !! Your payment is complete.')
-
-  //       const payment = {
-  //           transactionId: paymentIntent.id,
-  //           paymentStatus: 'paid',
-  //       }
-
-  //       fetch(`https://cashless-restaurant.herokuapp.com/orders/${_id}`,{
-  //           method: "PATCH",
-  //           headers:{
-  //               'content-type': "application/json"
-  //           },
-  //           body: JSON.stringify(payment),
-  //       }).then(res=>res.json()).then()
-  //     }
-  // };
   return (
     <section className="flex justify-center">
       <div className="card shadow-md w-auto m-1 sm:w-full sm:m-5 md:w-10/12 lg:w-1/2  p-4 lg:p-10 lg:m-10">
