@@ -227,7 +227,7 @@ export const AllOrders = () => {
                   <label
                     onClick={() => setTimeId(order._id)}
                     htmlFor="my-modal"
-                    className="btn btn-xs px-4 dark:text-white btn-info"
+                    className="btn btn-sm px-4 dark:text-white btn-info text-xs"
                   >
                     set Time
                   </label>
@@ -253,7 +253,7 @@ export const AllOrders = () => {
                 ) : (
                   <button
                     onClick={() => handleDeliverd(order._id)}
-                    className="btn btn-xs px-4 dark:text-white btn-info"
+                    className="btn btn-sm text-xs px-4 dark:text-white btn-info"
                   >
                     Complete
                   </button>
