@@ -1,3 +1,3 @@
-const mainPath = `https://cashless-restaurant.onrender.com`;
+const mainPath = `hhttps://cashless-restaurant.up.railway.app`;
 
 export default mainPath;

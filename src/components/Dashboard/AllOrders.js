@@ -207,7 +207,7 @@ export const AllOrders = () => {
                   <label
                     onClick={() => setTimeId(order._id)}
                     htmlFor="my-modal"
-                    className="flex items-center gap-1 text-white text-xs btn btn-xs px-4 dark:text-white btn-info"
+                    className=" text-white btn btn-sm px-2 dark:text-white btn-info text-xs"
                   >
                     {/* <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -221,13 +221,13 @@ export const AllOrders = () => {
                         clipRule="evenodd"
                       />
                     </svg> */}
-                    {order.deliveryTime} min
+                    {order.deliveryTime}min
                   </label>
                 ) : (
                   <label
                     onClick={() => setTimeId(order._id)}
                     htmlFor="my-modal"
-                    className="btn btn-sm px-4 dark:text-white btn-info text-xs"
+                    className="btn btn-sm px-2 dark:text-white btn-info text-xs"
                   >
                     set Time
                   </label>
